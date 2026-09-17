@@ -1,0 +1,5 @@
+{% if footer.left or footer.refs %}  <footer class="foot">
+{% if footer.left %}    <div>{{ footer.left|em }}</div>
+{% endif %}{% if footer.refs %}    <div class="r">{% for r in footer.refs %}{{ r|em }}{% if not loop.last %}<br>{% endif %}{% endfor %}</div>
+{% endif %}  </footer>
+{% endif %}

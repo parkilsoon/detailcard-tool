@@ -1,0 +1,19 @@
+  <section class="sec sec-callouts">
+{% for c in s["items"] %}    <div class="box {{ c.tone }}">
+      <h3>{{ c.title|em }}</h3>
+{% if c.lead %}      <p class="lead">{{ c.lead|em }}</p>
+{% endif %}{% if c.tone == 'info' and c.bullets %}      <ul>
+{% for b in c.bullets %}        <li>{{ b|em }}</li>
+{% endfor %}      </ul>
+{% elif c.bullets %}{% for b in c.bullets %}      <p class="mid">{{ b|em }}</p>
+{% endfor %}{% endif %}{% for g in c.groups %}      <div class="grp">
+        <h4>{{ g.heading|em }}</h4>
+{% if g.lead %}        <p class="{{ 'lead' if c.tone == 'action' else 'g-lead' }}">{{ g.lead|em }}</p>
+{% endif %}{% if g.bullets %}        <ul>
+{% for b in g.bullets %}          <li>{{ b|em }}</li>
+{% endfor %}        </ul>
+{% endif %}{% if g.note %}        <p class="note">{{ g.note|em }}</p>
+{% endif %}      </div>
+{% endfor %}{% if c.note %}      <p class="note">{{ c.note|em }}</p>
+{% endif %}    </div>
+{% endfor %}  </section>

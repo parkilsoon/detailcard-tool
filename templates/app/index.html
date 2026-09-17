@@ -1,0 +1,45 @@
+{% extends "app/_layout.html" %}
+{% block body %}
+<section class="list" id="list" data-tab="{{ tab }}">
+  <div class="list-head">
+    <h1 class="page-title">디테일카드 목록</h1>
+    <span class="spacer"></span>
+    <a class="btn" href="/export.csv">데이터 출력 (CSV)</a>
+    <a class="btn" href="/batch">다중 등록</a>
+    <a class="btn primary" href="/new">＋ 새로 등록</a>
+  </div>
+  {% if msg %}<p class="flash">{{ msg }}</p>{% endif %}
+  <div class="tabs">
+    <a href="/?tab=all" class="tab{% if tab == 'all' %} on{% endif %}">전체 <b>{{ cards|length }}</b></a>
+    <a href="/?tab=review" class="tab{% if tab == 'review' %} on{% endif %}">검수 대기 <b>{{ counts.review }}</b></a>
+    <a href="/?tab=processing" class="tab{% if tab == 'processing' %} on{% endif %}">처리 중 <b id="procCount">{{ counts.processing }}</b></a>
+    <a href="/?tab=done" class="tab{% if tab == 'done' %} on{% endif %}">등록됨 <b>{{ counts.done }}</b></a>
+    {% if counts.failed %}<a href="/?tab=failed" class="tab{% if tab == 'failed' %} on{% endif %}">실패 <b>{{ counts.failed }}</b></a>{% endif %}
+  </div>
+  {% if not cards %}
+  <p class="empty">아직 등록된 카드가 없습니다. 오른쪽 위 "새로 등록"으로 시작하세요.</p>
+  {% else %}
+  <table>
+    <thead><tr><th>제품명</th><th>회사명</th><th>상태</th><th>등록일</th><th>수정일</th><th></th></tr></thead>
+    <tbody>
+    {% for c in cards %}
+      {% set group = 'processing' if c.status in ('extracting', 'verifying') else c.status %}
+      <tr data-status="{{ group }}"{% if tab != 'all' and group != tab %} hidden{% endif %}>
+        <td><a href="/cards/{{ c.id }}">{{ c.product_name or '(추출 중)' }}{{ c.form or '' }}</a>{% if c.hint_count %} <span class="st" title="정해진 서식이 없어 글 상자나 표로 담은 블록 {{ c.hint_count }}개. 내용이 빠지지 않았는지 확인해 주세요.">임시 서식 {{ c.hint_count }}</span>{% endif %}</td>
+        <td>{{ c.company or '' }}</td>
+        <td><span class="st st-{{ c.status }}">{{ {'extracting':'추출 중','verifying':'검증 중','review':'검수 중','done':'등록됨','failed':'실패'}[c.status] }}</span></td>
+        <td class="mono">{{ c.registered_at[:16].replace('T',' ') if c.registered_at else '-' }}</td>
+        <td class="mono">{{ c.updated_at[:16].replace('T',' ') }}</td>
+        <td class="actions">
+          {% if c.status == 'done' %}<a class="btn small" href="/cards/{{ c.id }}/download">HTML</a>{% endif %}
+          {% if c.status != 'done' %}<form method="post" action="/cards/{{ c.id }}/delete" class="inline" onsubmit="return confirm('이 초안을 삭제할까요?')"><button class="btn small ghost">삭제</button></form>{% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p class="empty" id="tabEmpty" hidden>이 상태의 카드가 없습니다.</p>
+  {% endif %}
+</section>
+{% endblock %}
+{% block script %}<script>App.initList();</script>{% endblock %}

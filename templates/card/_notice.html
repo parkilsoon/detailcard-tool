@@ -1,0 +1,10 @@
+  <section class="sec sec-notice">
+    <div class="warn {{ s.tone }}">
+      <h3>{{ s.title|em }}</h3>
+{% for b in s.blocks %}{% if b.heading %}      <h4>{{ b.heading|em }}</h4>
+{% endif %}{% for p in b.paragraphs %}      <p>{{ p|em }}</p>
+{% endfor %}{% if b.bullets %}      <ul>
+{% for li in b.bullets %}        <li>{{ li|em }}</li>
+{% endfor %}      </ul>
+{% endif %}{% endfor %}    </div>
+  </section>

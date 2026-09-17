@@ -1,0 +1,164 @@
+{
+  "schema_version": "2.0",
+  "meta": null,
+  "header": {
+    "company": "동구바이오제약",
+    "product_name": "구세",
+    "form": "정",
+    "ingredient": "Clomipramine HCl 15mg + Sildenafil 50mg",
+    "category": "조루증 치료 복합제 (TCA + PDE5-i)",
+    "badges": [
+      {
+        "text": "전문의약품",
+        "kind": "plain"
+      },
+      {
+        "text": "255",
+        "kind": "code"
+      },
+      {
+        "text": "비급여",
+        "kind": "noncovered"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "kind": "spec_table",
+      "no": 1,
+      "title": "제품 정보",
+      "title_en": "PRODUCT INFORMATION",
+      "rows": [
+        {
+          "label": "성분명",
+          "value": "Clomipramine + Sildenafil",
+          "chip": null
+        },
+        {
+          "label": "함량·규격",
+          "value": "<em>15mg + 50mg</em> / 10T(PTP)",
+          "chip": null
+        },
+        {
+          "label": "약효분류",
+          "value": "조루증 치료제 (TCA + PDE5-i 복합)",
+          "chip": null
+        },
+        {
+          "label": "식약처분류",
+          "value": "비뇨생식기관용제(성병예방제포함) (255)",
+          "chip": null
+        },
+        {
+          "label": "보험코드",
+          "value": "657309020",
+          "chip": null
+        },
+        {
+          "label": "평균 환자부담금",
+          "value": "3,500원",
+          "chip": "비급여 · 전문"
+        },
+        {
+          "label": "저장·유효",
+          "value": "기밀용기 실온(1~30℃) / 36개월",
+          "chip": null
+        },
+        {
+          "label": "판매원",
+          "value": "(주)동구바이오제약",
+          "chip": null
+        }
+      ]
+    },
+    {
+      "kind": "callouts",
+      "no": null,
+      "items": [
+        {
+          "tone": "info",
+          "title": "효능·효과",
+          "lead": "클로미프라민 단독요법으로 조절되지 않는 조루증 치료",
+          "bullets": [
+            "TCA(Serotonin 재흡수 저해) + PDE5-i",
+            "IELT(질내 삽입 후 사정까지의 시간) 3.5배 증가 (국내 3상)",
+            "조루 3가지 정의 항목 (짧은 IELT, 사정 조절 능력 저하, 대인관계 어려움) 모두 향상",
+            "2026 EAU Guideline · Level of Evidence 1a"
+          ],
+          "note": null
+        },
+        {
+          "tone": "action",
+          "title": "용법·용량",
+          "lead": "성행위 <em>2~4시간 전 1정</em>",
+          "bullets": [
+            "24시간 내 1회를 초과하지 않는다."
+          ],
+          "note": "성인 남성 · 4주(5회) 투여 후 지속 여부 재평가"
+        }
+      ]
+    },
+    {
+      "kind": "icd",
+      "no": 2,
+      "title": "상병코드",
+      "title_en": "ICD-10 CODE",
+      "items": [
+        {
+          "code": "F52.4",
+          "name": "조루"
+        }
+      ]
+    },
+    {
+      "kind": "points",
+      "no": 3,
+      "title": "디테일 포인트",
+      "title_en": "KEY SELLING POINTS",
+      "items": [
+        {
+          "icon": "star",
+          "title": "TCA + PDE5-i 이중 작용 · 조루 통합 관리",
+          "desc": "Clomipramine: 직접 경로에 작용하여 사정 조절 · Sildenafil: 발기 안정성 → 사정 불안↓ (조루 개선에 심리적 영향)"
+        },
+        {
+          "icon": "star",
+          "title": "국내 3상 (N=792) · IELT(질내 삽입 후 사정까지의 시간) 3.5배 증가",
+          "desc": "구세정 3.5배 vs Sildenafil 2.5배 vs Clomipramine 2.6배 (p<0.0001·p=0.0007)"
+        },
+        {
+          "icon": "check",
+          "title": "2026 EAU Guideline · Level of Evidence 1a",
+          "desc": "PDE-5i + SSRI/TCA 병용은 단독요법보다 우월 (Salonia 2024)"
+        },
+        {
+          "icon": "check",
+          "title": "짧은 IELT, 사정 조절 능력 저하, 대인관계 어려움 모두 향상 · 안전성 양호",
+          "desc": "이상사례 경증 또는 중등증 99.6%, 경과는 대부분 '회복됨/해결됨' 또는 '회복중/해결중' 99.4%"
+        }
+      ]
+    },
+    {
+      "kind": "notice",
+      "title": "⚠ 처방 안내 (비급여전문 · 병용 금기 · 처방 지침)",
+      "tone": "warn",
+      "blocks": [
+        {
+          "heading": null,
+          "paragraphs": [
+            "성인 남성 · 클로미프라민 단독요법으로 적절하게 조절되지 않는 조루증의 치료 · (경고표시) MAO저해제(모클로베미드와 같은 선택적, 가역적인 MAO-A저해제도 포함), 선택적인 세로토닌 재흡수 저해제(SSRI), 세로토닌-노르에피네프린 재흡수 저해제(SNRI), 선택적인 세로토닌 효현제(트립탄류)를 투여하고 있는 환자, 심혈관계 질환 등을 포함하여 성생활이 권장되지 않는 환자(불안정성 협심증 또는 중증 심부전과 같은 중증 심혈관 질환자) 투여 금기 · 질산염제제 병용 절대 금기 · 4주(5회) 투여 후 지속 여부 재평가"
+          ],
+          "bullets": []
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "left": "동구바이오제약 · 의약전문가용 자료 · 무단 전재 및 복제 금지",
+    "refs": [
+      "Refs: 식약처 허가사항 ('26.9 기준)",
+      "※ 제품 상세 Reference는 브로셔 및 담당 마케팅팀 문의"
+    ]
+  },
+  "uncertain": []
+}

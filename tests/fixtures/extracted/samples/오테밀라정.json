@@ -1,0 +1,279 @@
+{
+  "schema_version": "2.0",
+  "meta": null,
+  "header": {
+    "company": "동구바이오제약",
+    "product_name": "오테밀라",
+    "form": "정",
+    "ingredient": "Apremilast(아프레밀라스트) · PDE4 억제제 · 건선 / 건선성 관절염",
+    "category": null,
+    "badges": [
+      {
+        "text": "전문의약품",
+        "kind": "plain"
+      },
+      {
+        "text": "142",
+        "kind": "code"
+      },
+      {
+        "text": "급여",
+        "kind": "covered"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "no": 1,
+      "layout_hint": null,
+      "kind": "spec_table",
+      "title": "제품 정보",
+      "title_en": "PRODUCT INFORMATION",
+      "rows": [
+        {
+          "label": "성분명",
+          "value": "Apremilast(아프레밀라스트)",
+          "chip": null
+        },
+        {
+          "label": "함량",
+          "value": "30mg(1일 2회)",
+          "chip": null
+        },
+        {
+          "label": "약효분류",
+          "value": "피부과 경구제 (PDE4 억제제)",
+          "chip": null
+        },
+        {
+          "label": "식약처분류",
+          "value": "자격요법제 (142)",
+          "chip": null
+        },
+        {
+          "label": "저장",
+          "value": "실온보관",
+          "chip": null
+        },
+        {
+          "label": "제조·판매",
+          "value": "(주)동구바이오제약",
+          "chip": "자사생산"
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "variants",
+      "title": null,
+      "items": [
+        {
+          "name": "30mg·유지용량",
+          "badge": null,
+          "subtitle": null,
+          "tags": [],
+          "rows": [
+            {
+              "label": "보험코드",
+              "value": "657309010"
+            },
+            {
+              "label": "약가",
+              "value": "4,500원"
+            },
+            {
+              "label": "규격",
+              "value": "30정·60정 (병)"
+            }
+          ],
+          "note": null
+        },
+        {
+          "name": "스타터팩·초기 증량",
+          "badge": null,
+          "subtitle": null,
+          "tags": [],
+          "rows": [
+            {
+              "label": "보험코드",
+              "value": "657308890"
+            },
+            {
+              "label": "약가",
+              "value": "99,000원"
+            },
+            {
+              "label": "규격",
+              "value": "10mg 4정 + 20mg 4정 + 30mg 19정 (PTP)"
+            }
+          ],
+          "note": null
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "callouts",
+      "items": [
+        {
+          "tone": "info",
+          "title": "효능·효과",
+          "lead": null,
+          "bullets": [
+            "① 활동성 건선성 관절염 이전 DMARD 요법에 부적절 반응·내약성 없는 성인",
+            "② 중등도~중증 판상 건선 광선치료·전신치료 대상 성인 환자"
+          ],
+          "groups": [],
+          "note": null
+        },
+        {
+          "tone": "action",
+          "title": "용법·용량",
+          "lead": "1일 2회 30mg",
+          "bullets": [
+            "약 12시간 간격 경구투여",
+            "초기 5일 점진 증량 (스타터팩)",
+            "위장관계 이상반응 최소화"
+          ],
+          "groups": [],
+          "note": null
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "table",
+      "title": "▶초기 증량 스케줄 (스타터팩)",
+      "columns": [
+        "구분",
+        "1일",
+        "2일",
+        "3일",
+        "4일",
+        "5일",
+        "6일~"
+      ],
+      "rows": [
+        [
+          "오전",
+          "10mg",
+          "10mg",
+          "10mg",
+          "20mg",
+          "20mg",
+          "30mg"
+        ],
+        [
+          "오후",
+          "-",
+          "10mg",
+          "20mg",
+          "20mg",
+          "30mg",
+          "30mg"
+        ]
+      ],
+      "note": null
+    },
+    {
+      "no": 2,
+      "layout_hint": null,
+      "kind": "icd",
+      "title": "상병코드",
+      "title_en": "ICD-10 CODE",
+      "items": [
+        {
+          "code": "L40",
+          "name": "건선",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "M07.0",
+          "name": "건선성 및 장병성 관절병증",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "M07.3",
+          "name": "기타 건선관절병증",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "M09.0",
+          "name": "건선에서의 연소성 관절염",
+          "desc": null,
+          "tag": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "no": 3,
+      "layout_hint": null,
+      "kind": "points",
+      "title": "디테일 포인트",
+      "title_en": "KEY SELLING POINTS",
+      "stats_title": null,
+      "stats": [],
+      "items": [
+        {
+          "icon": "check",
+          "title": "높은 안전성 · 장기 사용 가능",
+          "desc": "생물학적제제 대비 우수한 내약성 · 장기 투여 프로파일",
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "check",
+          "title": "정기적 혈액 모니터링 불필요",
+          "desc": "투여 전·중 정기 검사 부담↓ → 약물 순응도 증진",
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "check",
+          "title": "중등도~중증 판상 건선 적용",
+          "desc": "100/100 실비(실손) 적용 가능 · 처방 접근성 우수",
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "star",
+          "title": "스타터팩 초기 증량요법",
+          "desc": "10→30mg 5일 점진 증량으로 위장관계 이상반응 최소화",
+          "cite": null,
+          "highlight": true
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "notice",
+      "title": "⚠ 약제별 보험심사기준 (고시 제2026-117호 · 자격요법제 142)",
+      "tone": "warn",
+      "blocks": [
+        {
+          "heading": null,
+          "paragraphs": [
+            "<em>건선성 관절염</em> 2종 이상 DMARD 총 6개월^(각 3개월↑) 치료에도 효과 부족·부작용, 압통관절 3개↑ & 부종관절 3개↑(1개월 간격 2회) 충족 시 인정. <em>판상 건선</em> 만 18세↑ 만성 중증, BSA 10%↑ & PASI 10↑ + MTX·Cyclosporine 또는 광선치료(PUVA/UVB) 3개월↑ 실패 시 인정. 16주 평가(관절수 30%↓ 또는 PASI 75%↓) 시 6개월 연장 · 생물학적제제 병용 불인정."
+          ],
+          "bullets": []
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "left": "동구바이오제약 · 의약전문가용 자료 · 무단 전재 및 복제 금지",
+    "refs": [
+      "Refs: 식약처 허가사항 · 급여기준 고시 제2026-117호",
+      "※ 제품 상세 Reference는 브로셔 및 담당 마케팅팀 문의"
+    ]
+  },
+  "uncertain": []
+}

@@ -1,0 +1,26 @@
+{% extends "app/_layout.html" %}
+{% block title %}다중 등록{% endblock %}
+{% block body %}
+<section class="upload">
+  <p class="crumb"><a href="/">← 목록으로</a></p>
+  <h1 class="page-title">다중 등록</h1>
+  <p class="hint">여러 장을 한 번에 올리면 뒤에서 순서대로 처리됩니다(동시 {{ 3 }}장). 끝난 카드는 목록에 <b>검수 중</b>으로 쌓이니, 나중에 검수 중인 것만 열어서 확인하면 됩니다. 한 번에 {{ max_files }}장까지.</p>
+  <form id="batchForm" method="post" action="/cards/batch" enctype="multipart/form-data">
+    <label class="drop" id="drop">
+      <input type="file" name="files" accept="image/png" id="fileInput" multiple hidden>
+      <div class="drop-inner">
+        <div class="drop-icon">＋</div>
+        <div class="drop-title">PNG 여러 장을 여기에 끌어다 놓거나 클릭해서 선택하세요</div>
+        <div class="drop-sub" id="dropSub">폴더에서 여러 파일을 한꺼번에 선택할 수 있습니다.</div>
+      </div>
+    </label>
+    <ul class="filelist" id="fileList" hidden></ul>
+    <div class="batch-actions" id="batchActions" hidden>
+      <button type="button" class="btn ghost" id="clearBtn">비우기</button>
+      <button type="submit" class="btn primary" id="startBtn">일괄 처리 시작</button>
+    </div>
+  </form>
+  {% if error %}<p class="err">{{ error }}</p>{% endif %}
+</section>
+{% endblock %}
+{% block script %}<script>App.initBatch({{ max_files }});</script>{% endblock %}

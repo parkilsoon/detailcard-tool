@@ -1,0 +1,273 @@
+{
+  "schema_version": "2.0",
+  "meta": null,
+  "header": {
+    "company": "동구바이오제약",
+    "product_name": "동구에페리손",
+    "form": "정·서방정",
+    "ingredient": "Eperisone HCl · 중추성 골격근이완제 · 근력 저하 없이 근긴장 완화",
+    "category": null,
+    "badges": [
+      {
+        "text": "전문의약품",
+        "kind": "plain"
+      },
+      {
+        "text": "122",
+        "kind": "code"
+      },
+      {
+        "text": "급여",
+        "kind": "covered"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "no": 1,
+      "layout_hint": null,
+      "kind": "spec_table",
+      "title": "제품 정보",
+      "title_en": "PRODUCT INFORMATION",
+      "rows": [
+        {
+          "label": "성분명",
+          "value": "Eperisone HCl",
+          "chip": null
+        },
+        {
+          "label": "제형",
+          "value": "일반정 (50mg) / 서방정 (75mg)",
+          "chip": null
+        },
+        {
+          "label": "약효분류",
+          "value": "중추성 골격근이완제",
+          "chip": null
+        },
+        {
+          "label": "식약처분류",
+          "value": "골격근이완제 (122)",
+          "chip": null
+        },
+        {
+          "label": "저장·유효",
+          "value": "실온(1~30℃) / 일반정 36개월 · 서방정 24개월",
+          "chip": null
+        },
+        {
+          "label": "제조·판매",
+          "value": "(주)동구바이오제약",
+          "chip": null
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "variants",
+      "title": null,
+      "items": [
+        {
+          "name": "동구에페리손정",
+          "badge": "50mg",
+          "subtitle": null,
+          "tags": [],
+          "rows": [
+            {
+              "label": "보험코드",
+              "value": "657300850"
+            },
+            {
+              "label": "약가",
+              "value": "98원"
+            },
+            {
+              "label": "용법",
+              "value": "1일 3회 (식후)"
+            },
+            {
+              "label": "규격",
+              "value": "30·500T (병)"
+            }
+          ],
+          "note": null
+        },
+        {
+          "name": "동구에페리손서방정",
+          "badge": "75mg",
+          "subtitle": null,
+          "tags": [],
+          "rows": [
+            {
+              "label": "보험코드",
+              "value": "657307940"
+            },
+            {
+              "label": "약가",
+              "value": "190원"
+            },
+            {
+              "label": "용법",
+              "value": "1일 2회 (식후)"
+            },
+            {
+              "label": "규격",
+              "value": "30·500T (병)"
+            }
+          ],
+          "note": null
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "callouts",
+      "items": [
+        {
+          "tone": "info",
+          "title": "효능·효과",
+          "lead": "근골격계질환에 수반하는 동통성 근육연축",
+          "bullets": [
+            "경견완증후군, 견관절주위염, 요통",
+            "신경계 질환에 의한 경직성 마비"
+          ],
+          "groups": [],
+          "note": "(일반정에 한함)"
+        },
+        {
+          "tone": "action",
+          "title": "용법·용량",
+          "lead": null,
+          "bullets": [
+            "일반정 1회 50mg · 1일 3회 식후",
+            "서방정 1회 75mg · 1일 2회 식후",
+            "※ 서방정은 분쇄·분할·씹지 말고 전체 복용"
+          ],
+          "groups": [],
+          "note": null
+        }
+      ]
+    },
+    {
+      "no": 2,
+      "layout_hint": null,
+      "kind": "icd",
+      "title": "상병코드",
+      "title_en": "ICD-10 CODE",
+      "items": [
+        {
+          "code": "M54",
+          "name": "등통증 (요통)",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "M75",
+          "name": "어깨 병변",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "M48",
+          "name": "기타 척추병증",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "S33",
+          "name": "요추·골반 염좌·긴장",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "M47",
+          "name": "척추증",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "I63",
+          "name": "뇌경색증 (경직성 마비)",
+          "desc": null,
+          "tag": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "no": 3,
+      "layout_hint": null,
+      "kind": "points",
+      "title": "디테일 포인트",
+      "title_en": "KEY SELLING POINTS",
+      "stats_title": "▶ 임상 근거 (Eperisone · 요통 급성 근연축 240명 · 14일 위약대조)",
+      "stats": [
+        {
+          "value": "35.7%",
+          "caption": "치료 중 진통제 필요 환자 비율 위약 73.5% 대비 (요통 감소 · p<0.001)"
+        },
+        {
+          "value": "97%",
+          "caption": "내약성 평가(좋음/매우좋음 응답 비율) 부작용 위약과 유의차 없음"
+        }
+      ],
+      "items": [
+        {
+          "icon": "star",
+          "title": "국내 처방 상위 근이완제 성분",
+          "desc": "근력 저하 없이 근긴장 완화 (중추성 작용)",
+          "cite": null,
+          "highlight": true
+        },
+        {
+          "icon": "check",
+          "title": "Substance P 길항 → 진통효과 우수",
+          "desc": "신속한 약효 발현(정제 Tmax 45분)",
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "check",
+          "title": "효과적인 근수축 억제",
+          "desc": "근골격계 질환의 근 수축에 의한 통증 경감",
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "check",
+          "title": "낮은 부작용 · 서방정 1일 2회 편의",
+          "desc": "주로 척수에 작용(뇌에 영향 적음) → 졸음·진정·위장장애 극소",
+          "cite": null,
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "notice",
+      "title": "⚠ 약제별 보험심사기준 (Eperisone 경구제 · 고시 제2022-268호)",
+      "tone": "warn",
+      "blocks": [
+        {
+          "heading": null,
+          "paragraphs": [
+            "허가범위(근골격계질환 수반 동통성 근육연축 - 경견완증후군·견관절주위염·요통) 투여 시 급여, 그 외 약값 전액 본인부담.",
+            "서방정은 경구용 서방형제제 투여기준(고시 제2020-69호) 적용(분쇄 불가·분할 제한)."
+          ],
+          "bullets": []
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "left": "동구바이오제약 · 의약전문가용 자료 · 무단 전재 및 복제 금지",
+    "refs": [
+      "Refs: 식약처 허가사항·급여기준 고시 제2022-268호·제2020-69호",
+      "※ 제품 상세 Reference는 브로셔 및 담당 마케팅팀 문의"
+    ]
+  },
+  "uncertain": []
+}

@@ -1,0 +1,20 @@
+{% extends "app/_layout.html" %}
+{% block title %}새로 등록{% endblock %}
+{% block body %}
+<section class="upload">
+  <p class="crumb"><a href="/">← 목록으로</a></p>
+  <h1 class="page-title">새로 등록</h1>
+  <form id="uploadForm" method="post" action="/cards" enctype="multipart/form-data">
+    <label class="drop" id="drop">
+      <input type="file" name="file" accept="image/png" id="fileInput" hidden>
+      <div class="drop-inner">
+        <div class="drop-icon">＋</div>
+        <div class="drop-title">PC용 디테일카드 PNG를 여기에 끌어다 놓거나 클릭해서 선택하세요</div>
+        <div class="drop-sub">1장씩 올립니다. 올리면 바로 검수 화면으로 이동하고, 초안 추출에 보통 1~2분 걸립니다. 검수 후 저장을 누르면 목록에 등록됩니다.</div>
+      </div>
+    </label>
+  </form>
+  {% if error %}<p class="err">{{ error }}</p>{% endif %}
+</section>
+{% endblock %}
+{% block script %}<script>App.initUpload();</script>{% endblock %}

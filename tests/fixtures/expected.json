@@ -1,0 +1,26 @@
+{
+  "guse": {
+    "png": "DKBP 구세정 디테일카드.png",
+    "section_kinds": ["spec_table", "callouts", "icd", "points", "notice"],
+    "icd_count": 1,
+    "points_count": 4,
+    "spec_rows": {
+      "보험코드": ["657309020"],
+      "평균 환자부담금": ["3,500원"],
+      "함량·규격": ["15mg + 50mg / 10T(PTP)"]
+    },
+    "text_contains": ["p<0.0001", "p=0.0007", "N=792", "3.5배"]
+  },
+  "glifos": {
+    "png": "DKBP 글리포스연질캡슐 디테일카드.png",
+    "section_kinds": ["spec_table", "callouts", "icd", "points", "notice"],
+    "icd_count": 3,
+    "points_count": 3,
+    "spec_rows": {
+      "보험코드": ["657304640"],
+      "약가": ["445원", "(2022.9.1)"]
+    },
+    "text_contains": ["제2020-183호", "'25.9.21 시행", "80%"],
+    "icd_codes": ["F00", "F06", "G31.9"]
+  }
+}

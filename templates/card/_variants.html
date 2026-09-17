@@ -1,0 +1,14 @@
+  <section class="sec sec-variants">
+{% if s.title %}    <h3 class="sub-h">{{ s.title|em }}</h3>
+{% endif %}    <div class="variants">
+{% for v in s["items"] %}      <div class="variant">
+        <div class="v-head"><span class="v-name">{{ v.name|em }}</span>{% if v.badge %}<span class="v-badge">{{ v.badge|em }}</span>{% endif %}</div>
+{% if v.subtitle %}        <p class="v-sub">{{ v.subtitle|em }}</p>
+{% endif %}{% if v.tags %}        <div class="v-tags">{% for t in v.tags %}<span class="chip">{{ t|em }}</span>{% endfor %}</div>
+{% endif %}{% if v.rows %}        <dl class="v-rows">
+{% for r in v.rows %}          <div class="v-row">{% if r.label %}<dt>{{ r.label|em }}</dt>{% endif %}<dd>{{ r.value|em }}</dd></div>
+{% endfor %}        </dl>
+{% endif %}{% if v.note %}        <p class="v-note">{{ v.note|em }}</p>
+{% endif %}      </div>
+{% endfor %}    </div>
+  </section>

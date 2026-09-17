@@ -1,0 +1,7 @@
+  <section class="sec sec-icd">
+{% include "card/_section_title.html" %}
+    <div class="icd">
+{% for it in s["items"] %}      <div class="item"><span class="no">{{ it.code|em }}</span><span class="nm">{{ it.name|em }}{% if it.tag %}<span class="chip">{{ it.tag|em }}</span>{% endif %}{% if it.desc %}<span class="desc">{{ it.desc|em }}</span>{% endif %}</span></div>
+{% endfor %}    </div>
+{% if s.note %}    <p class="icd-note">{{ s.note|em }}</p>
+{% endif %}  </section>

@@ -1,0 +1,262 @@
+{
+  "schema_version": "2.0",
+  "meta": null,
+  "header": {
+    "company": "동구바이오제약",
+    "product_name": "베이드",
+    "form": "크림",
+    "ingredient": "Prednicarbate 0.25%",
+    "category": "5단계 강도 외용 스테로이드 · 습진·아토피·건선",
+    "badges": [
+      {
+        "text": "전문의약품",
+        "kind": "plain"
+      },
+      {
+        "text": "264",
+        "kind": "code"
+      },
+      {
+        "text": "급여",
+        "kind": "covered"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "no": 1,
+      "layout_hint": null,
+      "kind": "spec_table",
+      "title": "제품 정보",
+      "title_en": "PRODUCT INFORMATION",
+      "rows": [
+        {
+          "label": "성분명",
+          "value": "Prednicarbate",
+          "chip": null
+        },
+        {
+          "label": "함량",
+          "value": "2.5mg/1g(0.25%) · 2규격",
+          "chip": null
+        },
+        {
+          "label": "약효분류",
+          "value": "피부과외용제 · 외용 스테로이드",
+          "chip": null
+        },
+        {
+          "label": "식약처분류",
+          "value": "진통·진양·수렴·소염제 (264)",
+          "chip": null
+        },
+        {
+          "label": "저장",
+          "value": "기밀용기, 실온 보관",
+          "chip": null
+        },
+        {
+          "label": "제조·판매",
+          "value": "(주)동구바이오제약",
+          "chip": "자사생산"
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "variants",
+      "title": null,
+      "items": [
+        {
+          "name": "20g",
+          "badge": "소포장 · 튜브",
+          "subtitle": null,
+          "tags": [],
+          "rows": [
+            {
+              "label": "규격",
+              "value": "20g (튜브)"
+            },
+            {
+              "label": "보험코드",
+              "value": "657301893"
+            },
+            {
+              "label": "약가",
+              "value": "<em>3,219원</em>"
+            },
+            {
+              "label": "함량",
+              "value": "2.5mg/1g"
+            }
+          ],
+          "note": "외래·소량 처방에 적합 · 개별 환자 지참용"
+        },
+        {
+          "name": "500g",
+          "badge": "대용량 · 병",
+          "subtitle": null,
+          "tags": [],
+          "rows": [
+            {
+              "label": "규격",
+              "value": "500g (병)"
+            },
+            {
+              "label": "보험코드",
+              "value": "657301891"
+            },
+            {
+              "label": "약가",
+              "value": "<em>80,500원</em>"
+            },
+            {
+              "label": "함량",
+              "value": "2.5mg/1g"
+            }
+          ],
+          "note": "병원 재고·조제용에 적합 · 소분 조제 대응"
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "callouts",
+      "items": [
+        {
+          "tone": "info",
+          "title": "◆ 효능·효과",
+          "lead": null,
+          "bullets": [
+            "습진·피부염군",
+            "아토피 피부염 · 시루피부염 · 접촉성 알레르기 피부염 · 가려움",
+            "발진 포함",
+            "건선"
+          ],
+          "groups": [],
+          "note": null
+        },
+        {
+          "tone": "action",
+          "title": "◆ 용법·용량",
+          "lead": "<em>1일 1~2회 · 얇게 도포</em>",
+          "bullets": [
+            "환부에 가볍게 문지름",
+            "· 성인 <em>4주 이상 X</em>",
+            "· 소아 <em>3주 이상 X</em>",
+            "· <em>1세 이하 사용금기</em>"
+          ],
+          "groups": [],
+          "note": null
+        }
+      ]
+    },
+    {
+      "no": 2,
+      "layout_hint": null,
+      "kind": "icd",
+      "title": "상병코드",
+      "title_en": "ICD-10 CODE",
+      "items": [
+        {
+          "code": "L20",
+          "name": "아토피 피부염",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "L23",
+          "name": "알레르기성 접촉피부염",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "L24",
+          "name": "자극물접촉피부염",
+          "desc": null,
+          "tag": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "no": 3,
+      "layout_hint": null,
+      "kind": "points",
+      "title": "디테일 포인트",
+      "title_en": "KEY SELLING POINTS",
+      "stats_title": null,
+      "stats": [],
+      "items": [
+        {
+          "icon": "star",
+          "title": "<em>5단계(Lower-medium) potency TCS</em>",
+          "desc": null,
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "check",
+          "title": "<em>광범위 피부질환 적응증</em>",
+          "desc": "아토피 · 시루피부염 · 접촉성 알레르기 · 가려움 발진 · 건선 모두 인정",
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "check",
+          "title": "<em>2규격 라인업 (20g / 500g)</em>",
+          "desc": "외래 소량 처방(튜브) + 병원 조제 대응 (대용량 병) - 처방 형태별 유연 대응",
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "check",
+          "title": "<em>사용 안전성 기준 명확</em>",
+          "desc": "성인 4주 · 소아 3주 이내 · 1세 이하 금기 · 얇게 도포 원칙 준수",
+          "cite": null,
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "notice",
+      "title": "⚠ 급여기준 (코르티코스테로이드 피부 도포제 일반원칙 · 고시 제2019-57호)",
+      "tone": "warn",
+      "blocks": [
+        {
+          "heading": "▶ 원칙",
+          "paragraphs": [
+            "허가사항 범위 내 투여 시 요양급여 원칙 · 제품별 약제비 심사지침 없음"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "▶ 허가 초과 인정 (백반증)",
+          "paragraphs": [
+            "얼굴·목·손 등 노출부위 백반증에 식약처 허가 용법·용량 준수 시 요양급여 인정 · Prednicarbate 대상약제 포함"
+          ],
+          "bullets": []
+        },
+        {
+          "heading": "▶ 제외",
+          "paragraphs": [
+            "점막 부위용 제형(안연고·구강연고), 스테로이드 외 성분과의 복합제(gentamicin·isoconazole 등)는 제외 · 밀봉요법 피할 것"
+          ],
+          "bullets": []
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "left": "동구바이오제약 · 의약전문가용 자료 · 무단 전재 및 복제 금지",
+    "refs": [
+      "Refs: 식약처 허가사항 · 급여기준 고시 제2019-57호",
+      "※ 제품 상세 Reference는 브로셔 및 담당 마케팅팀 문의"
+    ]
+  },
+  "uncertain": []
+}

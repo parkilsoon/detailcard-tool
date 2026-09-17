@@ -1,0 +1,116 @@
+{
+  "schema_version": "2.0",
+  "meta": null,
+  "header": {
+    "company": "동구바이오제약",
+    "product_name": "동구에페리손",
+    "form": "정·서방정",
+    "ingredient": "Eperisone HCl",
+    "category": "<em>중추성 골격근이완제</em> · 근력 저하 없이 근긴장 완화",
+    "badges": [
+      { "text": "전문의약품", "kind": "plain" },
+      { "text": "122", "kind": "code" },
+      { "text": "급여", "kind": "covered" },
+      { "text": "급여·비급여", "kind": "mixed" }
+    ]
+  },
+  "sections": [
+    {
+      "kind": "spec_table", "no": 1, "layout_hint": null,
+      "title": "제품 정보", "title_en": "PRODUCT INFORMATION",
+      "rows": [
+        { "label": "성분명", "value": "Eperisone HCl" },
+        { "label": "제형", "value": "일반정 (50mg) / 서방정 (75mg)" },
+        { "label": "약효분류", "value": "중추성 골격근이완제" },
+        { "label": "식약처분류", "value": "골격근이완제 (122)" },
+        { "label": "저장·유효", "value": "실온(1~30℃) / 일반정 36개월 · 서방정 24개월" },
+        { "label": "제조·판매", "value": "(주)동구바이오제약", "chip": "자사생산" }
+      ]
+    },
+    {
+      "kind": "text_box", "no": null, "layout_hint": "표 아래 회색 한 줄 띠",
+      "title": null, "badge": null, "tone": "plain",
+      "paragraphs": ["※ 본 품목은 대우제약 재위탁 품목입니다"]
+    },
+    {
+      "kind": "variants", "no": null, "layout_hint": null, "title": null,
+      "items": [
+        { "name": "동구에페리손정", "badge": "50mg", "subtitle": null, "tags": [],
+          "rows": [
+            { "label": "보험코드", "value": "<em>657300850</em>" },
+            { "label": "약가", "value": "98원" },
+            { "label": "용법", "value": "<em>1일 3회 (식후)</em>" },
+            { "label": "규격", "value": "30·500T (병)" }
+          ], "note": null },
+        { "name": "동구에페리손서방정", "badge": "75mg", "subtitle": null, "tags": ["자사생산"],
+          "rows": [
+            { "label": "보험코드", "value": "<em>657307940</em>" },
+            { "label": "약가", "value": "190원" },
+            { "label": "용법", "value": "<em>1일 2회 (식후)</em>" },
+            { "label": "규격", "value": "30·500T (병)" }
+          ], "note": "2025.9.1 약가인하 반영" }
+      ]
+    },
+    {
+      "kind": "callouts", "no": null, "layout_hint": null,
+      "items": [
+        { "tone": "info", "title": "효능·효과",
+          "lead": "<em>근골격계질환에 수반하는 동통성 근육연축</em>",
+          "bullets": ["경견완증후군, 견관절주위염, 요통"],
+          "groups": [],
+          "note": "(일반정에 한함)" },
+        { "tone": "action", "title": "용법·용량",
+          "lead": null, "bullets": [],
+          "groups": [
+            { "heading": "▶ 일반정", "lead": "1회 50mg · <em>1일 3회</em> 식후", "bullets": [], "note": null },
+            { "heading": "▶ 서방정", "lead": "1회 75mg · <em>1일 2회</em> 식후", "bullets": [], "note": null }
+          ],
+          "note": "<em>※ 서방정은 분쇄·분할·씹지 말고 전체 복용</em>" }
+      ]
+    },
+    {
+      "kind": "icd", "no": 2, "layout_hint": null,
+      "title": "상병코드", "title_en": "ICD-10 CODE",
+      "items": [
+        { "code": "M54", "name": "등통증 (요통)", "desc": null, "tag": null },
+        { "code": "M75", "name": "어깨 병변", "desc": "회전근개 증후군 포함", "tag": "필수" },
+        { "code": "I63", "name": "뇌경색증 (경직성 마비)", "desc": null, "tag": null }
+      ],
+      "note": "⚠ 상병코드는 참고용이며 실제 청구는 심사기준을 따른다"
+    },
+    {
+      "kind": "points", "no": 3, "layout_hint": null,
+      "title": "디테일 포인트", "title_en": "KEY SELLING POINTS",
+      "stats_title": "▶ 임상 근거 (Eperisone · 요통 급성 근연축 240명 · 14일 위약대조)",
+      "stats": [
+        { "value": "35.7%", "caption": "치료 중 진통제 필요 환자 비율 위약 73.5% 대비 (요통 감소 · p<0.001)" },
+        { "value": "97%", "caption": "내약성 평가(좋음/매우좋음 응답 비율) 부작용 위약과 유의차 없음" }
+      ],
+      "items": [
+        { "icon": "star", "title": "<em>국내 처방 상위 근이완제 성분</em>", "desc": "근력 저하 없이 근긴장 완화 (중추성 작용)", "cite": null, "highlight": true },
+        { "icon": "check", "title": "<em>Substance P 길항 → 진통효과 우수</em>", "desc": "신속한 약효 발현(정제 Tmax 45분)", "cite": "Salonia 2024", "highlight": false }
+      ]
+    },
+    {
+      "kind": "table", "no": null, "layout_hint": "스테로이드 강도 I~VII 7칸 눈금, IV 강조",
+      "title": "외용 스테로이드 강도",
+      "columns": ["I", "II", "III", "IV", "V", "VI", "VII"],
+      "rows": [["최강", "", "", "<em>더모타손 (IV)</em>", "", "", "최약"]],
+      "note": "국내 분류 기준"
+    },
+    {
+      "kind": "notice", "no": null, "layout_hint": null,
+      "title": "⚠ 약제별 보험심사기준 (Eperisone 경구제 · 고시 제2022-268호)",
+      "tone": "warn",
+      "blocks": [
+        { "heading": null, "paragraphs": ["허가범위(<em>근골격계질환 수반 동통성 근육연축 — 경견완증후군·견관절주위염·요통</em>) 투여 시 급여, 그 외 약값 전액 본인부담."], "bullets": [] },
+        { "heading": "▶ 제외", "paragraphs": [], "bullets": ["점막 부위용 제형(안연고·구강연고)", "스테로이드 외 성분과의 복합제는 제외 · <em>밀봉요법 피할 것</em>"] }
+      ]
+    }
+  ],
+  "footer": {
+    "left": "<em>동구바이오제약</em> · 의약전문가용 자료 · 무단 전재 및 복제 금지",
+    "refs": ["Refs: 식약처 허가사항 · 급여기준 고시 제2022-268호 · 제2020-69호", "※ 제품 상세 Reference는 브로셔 및 담당 마케팅팀 문의"]
+  },
+  "uncertain": []
+}

@@ -1,0 +1,249 @@
+{
+  "schema_version": "2.0",
+  "meta": null,
+  "header": {
+    "company": "동구바이오제약",
+    "product_name": "메디녹실",
+    "form": "패밀리",
+    "ingredient": "Minoxidil 5% (± Vit·Menthol) · 남성형 탈모증 치료제 · 외용",
+    "category": null,
+    "badges": [
+      {
+        "text": "일반의약품",
+        "kind": "plain"
+      },
+      {
+        "text": "267",
+        "kind": "code"
+      },
+      {
+        "text": "비급여",
+        "kind": "noncovered"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "no": 1,
+      "layout_hint": null,
+      "kind": "spec_table",
+      "title": "제품 정보",
+      "title_en": "PRODUCT INFORMATION",
+      "rows": [
+        {
+          "label": "주성분",
+          "value": "Minoxidil (± Tocopherol·Pyridoxine·Menthol)",
+          "chip": null
+        },
+        {
+          "label": "라인업",
+          "value": "2제품 · 단독제 / 4성분 복합제",
+          "chip": null
+        },
+        {
+          "label": "약효분류",
+          "value": "피부과외용제 · 탈모치료제",
+          "chip": null
+        },
+        {
+          "label": "식약처분류",
+          "value": "모발용제 (267)",
+          "chip": null
+        },
+        {
+          "label": "저장",
+          "value": "기밀용기, 실온 보관",
+          "chip": null
+        },
+        {
+          "label": "제조사",
+          "value": "플러스액 자사 · 메디녹실액 위탁 (아래 참조)",
+          "chip": null
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "variants",
+      "title": null,
+      "items": [
+        {
+          "name": "메디녹실액",
+          "badge": "기본",
+          "subtitle": "Minoxidil 50mg/1mL (5%) 단일 성분 (Minoxidil only)",
+          "tags": [],
+          "rows": [
+            {
+              "label": "규격",
+              "value": "120mL (병)"
+            },
+            {
+              "label": "비급여코드",
+              "value": "657302662"
+            },
+            {
+              "label": "출하가",
+              "value": "22,000원(VAT 포함)"
+            },
+            {
+              "label": "평균 환자부담금",
+              "value": "28,000원~(VAT 포함)"
+            }
+          ],
+          "note": "Minoxidil 단독 처방"
+        },
+        {
+          "name": "메디녹실플러스액",
+          "badge": "플러스",
+          "subtitle": "Minoxidil 50mg + Tocopherol 0.8mg + Pyridoxine 0.5mg + L-menthol 3mg / 1mL",
+          "tags": [
+            "자사생산"
+          ],
+          "rows": [
+            {
+              "label": "규격",
+              "value": "90mL (병)"
+            },
+            {
+              "label": "비급여코드",
+              "value": "657307931"
+            },
+            {
+              "label": "출하가",
+              "value": "26,400원(VAT 포함)"
+            },
+            {
+              "label": "평균 환자부담금",
+              "value": "32,000원~(VAT 포함)"
+            }
+          ],
+          "note": "★ 1mL 정량노즐 · 두피 건강 성분 3종 추가"
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "callouts",
+      "items": [
+        {
+          "tone": "info",
+          "title": "◆ 효능·효과",
+          "lead": "남성형 탈모증 (안드로겐 탈모증) 치료",
+          "bullets": [
+            "5% Minoxidil 함유 → <em>남성 환자에 한함</em>",
+            "(여성/18세 미만 사용 불가)"
+          ],
+          "groups": [],
+          "note": null
+        },
+        {
+          "tone": "action",
+          "title": "◆ 용법·용량",
+          "lead": "<em>1일 2회 · 0.5~1mL / 회</em>",
+          "bullets": [
+            "아침·저녁 건조 두피 도포",
+            "<em>최소 4개월 이상 지속</em> · 1일 최대 2mL",
+            "중단 시 탈모 재발 가능"
+          ],
+          "groups": [],
+          "note": null
+        }
+      ]
+    },
+    {
+      "no": 2,
+      "layout_hint": "4개의 성분 설명 박스가 나란히 배치됨",
+      "kind": "table",
+      "title": "성분·작용",
+      "columns": [],
+      "rows": [
+        [
+          "Minoxidil 50mg / 1mL (5%)",
+          "두피 혈류 증가 · 상피세포 증식 촉진 발모 촉진 · 면역기능 정상화",
+          "양쪽 공통"
+        ],
+        [
+          "Tocopherol 0.8mg / 1mL",
+          "항산화 작용 모낭 산화스트레스 감소",
+          "플러스만"
+        ],
+        [
+          "Pyridoxine 0.5mg / 1mL",
+          "과도한 피지분비 억제 두피 유분 관리 (Vit B6)",
+          "플러스만"
+        ],
+        [
+          "L-menthol 3mg / 1mL",
+          "쿨링 효과 두피 가려움·염증 억제",
+          "플러스만"
+        ]
+      ],
+      "note": null
+    },
+    {
+      "no": 3,
+      "layout_hint": null,
+      "kind": "points",
+      "title": "디테일 포인트",
+      "title_en": "KEY SELLING POINTS",
+      "stats_title": null,
+      "stats": [],
+      "items": [
+        {
+          "icon": "star",
+          "title": "플러스액: 1mL 정량노즐 특허 설계",
+          "desc": "정확한 용량 계측 · 부위별 정밀 도포 · 용액 흘러내림 없이 두피 직접 접착 · 휴대성↑",
+          "cite": null,
+          "highlight": true
+        },
+        {
+          "icon": "check",
+          "title": "5% Minoxidil 임상 근거 확보",
+          "desc": "모발수 증가 · 2% 대비 유의 (P<0.025) · 위약군 대비 96주 30% 증가 유지",
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "check",
+          "title": "플러스액: 두피 건강 3종 강화",
+          "desc": "항산화(Tocopherol) + 피지 조절(Pyridoxine) + 쿨링(L-menthol) → 두피 환경 개선",
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "check",
+          "title": "기본액: 단독제 처방 필요 시 옵션",
+          "desc": "Minoxidil 단독 처방·병용요법 시 · 120mL 대용량 (플러스액 대비 33%↑)",
+          "cite": null,
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "notice",
+      "title": "◆ 비급여 안내",
+      "tone": "noncovered",
+      "blocks": [
+        {
+          "heading": null,
+          "paragraphs": [
+            "메디녹실 패밀리는 <em>일반의약품(OTC) · 전액 비급여 제품</em> - 남성형 탈모증(안드로겐성 탈모)은 요양급여 대상 상병이 아니므로 상병코드 해당 없음 · 처방·판매 시 비급여점검코드로 등록 (일반액 657302662 · 플러스액 657307931)"
+          ],
+          "bullets": []
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "left": "동구바이오제약 · 의약전문가용 자료 · 무단 전재 및 복제 금지",
+    "refs": [
+      "Refs: 식약처 허가사항 ('26.9 기준)",
+      "※ 제품 상세 Reference는 브로셔 및 담당 마케팅팀 문의"
+    ]
+  },
+  "uncertain": []
+}

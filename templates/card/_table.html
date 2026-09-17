@@ -1,0 +1,11 @@
+  <section class="sec sec-table{% if s.no is not none or s.title_en %} numbered{% endif %}">
+{% if s.no is not none or s.title_en %}{% include "card/_section_title.html" %}
+{% elif s.title %}    <h3 class="sub-h">{{ s.title|em }}</h3>
+{% endif %}    <div class="tscroll"><table class="gtable">
+{% if s.columns %}      <thead><tr>{% for c in s.columns %}<th>{{ c|em }}</th>{% endfor %}</tr></thead>
+{% endif %}      <tbody>
+{% for r in s.rows %}        <tr>{% for c in r %}<td>{{ c|em }}</td>{% endfor %}</tr>
+{% endfor %}      </tbody>
+    </table></div>
+{% if s.note %}    <p class="t-note">{{ s.note|em }}</p>
+{% endif %}  </section>

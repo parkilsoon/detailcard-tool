@@ -1,0 +1,16 @@
+  <section class="sec sec-points">
+{% include "card/_section_title.html" %}
+{% if s.stats %}    <div class="stats">
+{% if s.stats_title %}      <h4>{{ s.stats_title|em }}</h4>
+{% endif %}      <div class="tiles">
+{% for t in s.stats %}        <div class="tile"><b>{{ t.value|em }}</b><span>{{ t.caption|em }}</span></div>
+{% endfor %}      </div>
+    </div>
+{% endif %}    <div class="points">
+{% for p in s["items"] %}      <div class="pt {{ 'star' if p.icon == 'star' else 'chk' }}{% if p.highlight %} hl{% endif %}">
+        <div class="pt-t"><span class="ic">{{ '★' if p.icon == 'star' else '✓' }}</span><h4>{{ p.title|em }}</h4></div>
+{% if p.desc %}        <p>{{ p.desc|em }}</p>
+{% endif %}{% if p.cite %}        <p class="cite">{{ p.cite|em }}</p>
+{% endif %}      </div>
+{% endfor %}    </div>
+  </section>

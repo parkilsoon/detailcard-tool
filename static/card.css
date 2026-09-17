@@ -1,0 +1,188 @@
+/* 모바일 디테일카드 공용 스타일 — 제품별 커스텀 금지. template_version 은 renderer.py 참조 */
+:root{
+  color-scheme: light;
+  --brand:#1a5fa8;
+  --brand-deep:#123f72;
+  --brand-soft:#e8f0fa;
+  --accent:#2c7a33;
+  --ink:#1f2937;
+  --ink-soft:#5b6672;
+  --line:#e3e8ef;
+  --page:#eef1f5;
+  --card:#ffffff;
+  --box-blue:#eff4fb;
+  --box-green:#eff6ef;
+  --warn-bg:#fff9e9;
+  --warn-line:#e0a92a;
+  --r:10px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--page);
+  color:var(--ink);
+  font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:15px;
+  line-height:1.55;
+  -webkit-text-size-adjust:100%;
+  word-break:keep-all;
+}
+.wrap{max-width:480px;margin:0 auto;background:var(--card);min-height:100vh;}
+.wrap em{font-style:normal;font-weight:700;color:var(--brand);}
+
+/* ── 헤더 ── */
+.head{padding:14px 16px 12px;border-bottom:3px solid var(--brand);background:#fff;}
+.corp{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--brand-deep);letter-spacing:-.02em;}
+.corp .mark{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--brand) 55%,#37a06d 55%);flex:none;}
+.pname{margin:10px 0 0;display:flex;align-items:baseline;flex-wrap:wrap;gap:6px;font-size:26px;font-weight:800;letter-spacing:-.03em;color:#111;}
+.pform{font-size:12px;font-weight:700;color:#fff;background:var(--brand);border-radius:999px;padding:2px 10px;letter-spacing:0;transform:translateY(-3px);}
+.ingr{margin:4px 0 0;font-size:13px;color:var(--ink-soft);}
+.cat{margin:2px 0 0;font-size:13px;font-weight:400;color:var(--ink-soft);}
+.tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
+.tag{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:5px;background:#f1f4f8;color:#46586e;border:1px solid var(--line);}
+.tag.code{color:var(--brand);background:var(--brand-soft);border-color:#cfdff2;}
+.tag.noncovered{color:#8a6a12;background:#fdf4dd;border-color:#f0dfae;}
+.tag.covered{color:#256b2b;background:#e8f4e8;border-color:#bfdcc0;}
+.tag.selective{color:#7a4f9a;background:#f3ecf9;border-color:#dccbe9;}
+
+/* ── 섹션 ── */
+.sec{padding:18px 16px 4px;}
+.sec + .sec{border-top:8px solid var(--page);}
+.sec.sec-callouts,.sec.sec-notice{border-top:0;padding-top:0;}
+.sec-h{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:17px;font-weight:800;letter-spacing:-.02em;padding-bottom:9px;border-bottom:1px solid var(--line);}
+.sec-h i{font-style:normal;flex:none;width:21px;height:21px;border-radius:5px;background:var(--brand);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.sec-h .en{font-size:10.5px;font-weight:600;color:#9aa5b1;letter-spacing:.06em;}
+
+/* ── 제품정보 ── */
+.spec{margin:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;}
+.row{display:flex;border-top:1px solid var(--line);}
+.row:first-child{border-top:0;}
+.row dt{flex:none;width:92px;padding:9px 10px;background:#f7f9fc;font-size:12.5px;font-weight:700;color:#4a5765;display:flex;align-items:center;}
+.row dd{margin:0;padding:9px 12px;font-size:13.5px;flex:1;min-width:0;}
+.chip{display:inline-block;margin-left:5px;font-size:11px;font-weight:700;color:#256b2b;background:#e8f4e8;border:1px solid #bfdcc0;border-radius:4px;padding:1px 7px;vertical-align:1px;}
+
+/* ── 효능/용법 박스 ── */
+.box{border-radius:var(--r);padding:13px 14px;margin-top:12px;}
+.box.info{background:var(--box-blue);border-left:4px solid var(--brand);}
+.box.action{background:var(--box-green);border-left:4px solid var(--accent);}
+.box h3{margin:0 0 8px;font-size:13px;font-weight:800;color:#3c4a5a;}
+.box h3::before{content:"◆ ";color:var(--brand);}
+.box.action h3::before{color:var(--accent);}
+.info .lead{margin:0 0 8px;font-size:14px;font-weight:500;color:#4a5765;line-height:1.45;}
+.info .lead em{color:var(--brand-deep);}
+.info ul{margin:0;padding:0;list-style:none;}
+.info li{position:relative;padding-left:11px;font-size:13px;color:#4a5765;margin-top:5px;line-height:1.5;}
+.info li::before{content:"";position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:#a8bad0;}
+.info .note{margin:8px 0 0;font-size:12.5px;color:#6b7a8a;}
+.action .lead{margin:0;font-size:22px;font-weight:800;letter-spacing:-.03em;color:#1b2b1c;line-height:1.35;}
+.action .lead em{color:var(--accent);}
+.action .mid{margin:5px 0 0;font-size:13.5px;font-weight:700;color:#33424f;}
+.action .mid em{color:var(--accent);}
+.action .note{margin:6px 0 0;font-size:12.5px;color:#6b7a70;}
+
+/* ── 상병코드 ── */
+.icd{display:flex;flex-direction:column;gap:8px;}
+.icd .item{display:flex;align-items:center;gap:10px;border:1px solid #cfdff2;border-radius:var(--r);padding:10px 12px;background:#fbfcfe;}
+.icd .no{flex:none;background:var(--brand);color:#fff;font-weight:800;font-size:13px;padding:3px 10px;border-radius:6px;letter-spacing:.01em;}
+.icd .nm{font-size:13.5px;font-weight:600;color:#33424f;}
+
+/* ── 디테일 포인트 ── */
+.points{display:flex;flex-direction:column;gap:9px;}
+.pt{border:1px solid var(--line);border-radius:var(--r);padding:12px 13px;background:#fdfdfe;}
+.pt-t{display:flex;gap:8px;align-items:flex-start;}
+.pt-t .ic{flex:none;width:19px;height:19px;border-radius:50%;background:var(--brand-soft);color:var(--brand);font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.pt.star .ic{background:#fdf1d8;color:#c78f16;}
+.pt-t h4{margin:0;font-size:14px;font-weight:700;line-height:1.4;letter-spacing:-.02em;color:#33424f;}
+.pt.star .pt-t h4 em{color:var(--accent);}
+.pt p{margin:6px 0 0 27px;font-size:12.5px;color:#5b6672;line-height:1.55;}
+
+/* ── 경고 박스 ── */
+.warn{margin:14px 0 0;background:var(--warn-bg);border-left:4px solid var(--warn-line);border-radius:var(--r);padding:13px 14px;}
+.warn h3{margin:0 0 7px;font-size:13px;font-weight:800;color:#8a6a12;}
+.warn h3 em{color:#8a6a12;}
+.warn p{margin:0;font-size:12.5px;line-height:1.65;color:#4f5a66;}
+.warn p + p{margin-top:5px;}
+.warn p em{color:#b3541e;}
+
+/* ── 푸터 ── */
+.foot{margin-top:20px;background:#3a4653;color:#c3ccd6;padding:14px 16px;font-size:11px;line-height:1.7;}
+.foot em{color:#fff;}
+.foot .r{margin-top:6px;color:#98a4b0;}
+
+@media (max-width:340px){
+  .pname{font-size:23px;}
+  .row dt{width:80px;font-size:12px;}
+  .action .lead{font-size:20px;}
+}
+
+/* ── v2: 규격별 박스 ── */
+.sec.sec-variants,.sec.sec-text_box,.sec.sec-table{border-top:0;padding-top:0;}
+.sec.sec-text_box.numbered,.sec.sec-table.numbered{border-top:8px solid var(--page);padding-top:18px;}
+.sub-h{margin:0 0 10px;font-size:14px;font-weight:800;color:#3c4a5a;}
+.variants{display:flex;flex-direction:column;gap:10px;margin-top:12px;}
+.variant{border:1.5px solid #cfdff2;border-radius:var(--r);padding:12px 13px;background:#fbfcfe;}
+.variant:nth-child(2){border-color:#bfdcc0;}
+.variant:nth-child(3){border-color:#dccbe9;}
+.v-head{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.v-name{font-size:15px;font-weight:800;color:#1b2b3a;letter-spacing:-.02em;}
+.v-badge{flex:none;font-size:12px;font-weight:800;color:#fff;background:var(--brand);border-radius:999px;padding:2px 10px;}
+.variant:nth-child(2) .v-badge{background:var(--accent);}
+.variant:nth-child(3) .v-badge{background:#7a4f9a;}
+.v-sub{margin:4px 0 0;font-size:12.5px;color:var(--ink-soft);}
+.v-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;}
+.v-tags .chip{margin-left:0;}
+.v-rows{margin:8px 0 0;border-top:1px dashed #dfe6ef;}
+.v-row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed #dfe6ef;font-size:13px;}
+.v-row dt{color:#4a5765;font-weight:600;flex:none;}
+.v-row dd{margin:0;text-align:right;color:#1b2b3a;font-weight:600;}
+.v-note{margin:8px 0 0;font-size:12px;color:var(--ink-soft);}
+
+/* ── v2: 메모·설명 박스 ── */
+.tbox{margin-top:12px;border-radius:var(--r);padding:10px 13px;font-size:12.5px;line-height:1.6;color:#4f5a66;background:#f3f5f8;border-left:4px solid #b8c4d2;}
+.tbox.info{background:var(--box-blue);border-left-color:var(--brand);}
+.tbox.success{background:var(--box-green);border-left-color:var(--accent);}
+.tbox h3{margin:0 0 5px;font-size:13px;font-weight:800;color:#3c4a5a;display:flex;align-items:center;gap:6px;}
+.tbox .t-badge{font-size:11px;font-weight:800;color:#fff;background:var(--accent);border-radius:5px;padding:1px 7px;}
+.tbox p{margin:0;}
+.tbox p + p{margin-top:4px;}
+
+/* ── v2: 특수 표 ── */
+.tscroll{overflow-x:auto;margin-top:12px;}
+.gtable{border-collapse:collapse;width:100%;font-size:12.5px;}
+.gtable th,.gtable td{border:1px solid var(--line);padding:6px 8px;text-align:center;white-space:nowrap;}
+.gtable th{background:#f7f9fc;font-weight:700;color:#4a5765;}
+.gtable td:first-child{text-align:left;font-weight:600;background:#fbfcfe;}
+.t-note{margin:6px 0 0;font-size:12px;color:var(--ink-soft);}
+
+/* ── v2: 효능/용법 그룹 ── */
+.box .grp{margin-top:9px;padding-top:8px;border-top:1px dashed #cfd8e3;}
+.box .grp h4{margin:0 0 4px;font-size:12.5px;font-weight:800;color:#3c4a5a;}
+.info .g-lead{margin:0 0 4px;font-size:13.5px;font-weight:700;color:var(--brand-deep);}
+.action .grp .lead{font-size:17px;}
+
+/* ── v2: 상병코드 부가 ── */
+.icd .nm{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;}
+.icd .nm .chip{margin-left:0;}
+.icd .nm .desc{flex-basis:100%;font-size:12px;font-weight:400;color:#8b97a4;}
+.icd-note{margin:10px 0 0;padding:8px 12px;background:var(--warn-bg);border-left:4px solid var(--warn-line);border-radius:6px;font-size:12.5px;color:#6b5a1e;}
+
+/* ── v2: 수치 타일 · 인용 · 강조 ── */
+.stats{background:var(--box-green);border:1px solid #cfe3d0;border-radius:var(--r);padding:12px 13px;margin-bottom:10px;}
+.stats h4{margin:0 0 8px;font-size:13px;font-weight:800;color:var(--accent);}
+.tiles{display:flex;gap:8px;}
+.tile{flex:1;min-width:0;background:#fff;border:1px solid #cfe3d0;border-radius:8px;padding:9px 10px;}
+.tile b{display:block;font-size:22px;font-weight:800;color:var(--brand);letter-spacing:-.02em;line-height:1.2;}
+.tile span{display:block;margin-top:3px;font-size:11.5px;color:#5b6672;line-height:1.45;}
+.pt.hl{background:var(--box-green);border-color:#cfe3d0;}
+.pt .cite{margin-top:4px;font-size:11px;color:#8b97a4;}
+
+/* ── v2: 안내 박스 색상·소제목 ── */
+.warn.info{background:#f3f5f8;border-left-color:#8a97a6;}
+.warn.info h3{color:#46586e;}
+.warn.noncovered{background:#fff1f0;border-left-color:#d9534f;}
+.warn.noncovered h3{color:#b3312d;}
+.warn h4{margin:9px 0 3px;font-size:12.5px;font-weight:800;color:#5c4a12;}
+.warn.noncovered h4{color:#b3312d;}
+.warn ul{margin:2px 0 0;padding-left:16px;font-size:12.5px;line-height:1.65;color:#4f5a66;}
+.warn li + li{margin-top:2px;}
+@media (max-width:340px){.tiles{flex-direction:column;}}

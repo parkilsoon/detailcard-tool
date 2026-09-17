@@ -1,0 +1,6 @@
+  <section class="sec sec-spec_table">
+{% include "card/_section_title.html" %}
+    <dl class="spec">
+{% for r in s.rows %}      <div class="row"><dt>{{ r.label|em }}</dt><dd>{{ r.value|em }}{% if r.chip %}<span class="chip">{{ r.chip|em }}</span>{% endif %}</dd></div>
+{% endfor %}    </dl>
+  </section>

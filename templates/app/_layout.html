@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}디테일카드 모바일 변환{% endblock %}</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<header class="topbar">
+  <a href="/" class="brand">디테일카드 모바일 변환</a>
+  <span class="tagline">PNG를 올리면 초안을 자동으로 만들고, 원본과 대조해 고친 뒤 HTML로 내려받습니다.</span>
+</header>
+<main class="main">
+{% block body %}{% endblock %}
+</main>
+<script src="/static/app.js"></script>
+{% block script %}{% endblock %}
+</body>
+</html>

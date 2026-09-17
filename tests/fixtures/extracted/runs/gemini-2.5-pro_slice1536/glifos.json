@@ -1,0 +1,165 @@
+{
+  "schema_version": "2.0",
+  "meta": null,
+  "header": {
+    "company": "동구바이오제약",
+    "product_name": "글리포스",
+    "form": "연질캡슐",
+    "ingredient": "Choline Alfoscerate 400mg · 뇌기능개선제",
+    "category": null,
+    "badges": [
+      {
+        "text": "전문의약품",
+        "kind": "plain"
+      },
+      {
+        "text": "119",
+        "kind": "code"
+      },
+      {
+        "text": "급여",
+        "kind": "covered"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "kind": "spec_table",
+      "no": 1,
+      "title": "제품 정보",
+      "title_en": "PRODUCT INFORMATION",
+      "rows": [
+        {
+          "label": "성분명",
+          "value": "Choline alfoscerate",
+          "chip": null
+        },
+        {
+          "label": "함량·규격",
+          "value": "400mg / 90C (PTP)",
+          "chip": null
+        },
+        {
+          "label": "약효분류",
+          "value": "뇌기능개선제",
+          "chip": null
+        },
+        {
+          "label": "식약처분류",
+          "value": "기타의 중추신경용약 (119)",
+          "chip": null
+        },
+        {
+          "label": "보험코드",
+          "value": "657304640",
+          "chip": null
+        },
+        {
+          "label": "약가",
+          "value": "445원 (2022.9.1)",
+          "chip": null
+        },
+        {
+          "label": "저장·유효",
+          "value": "실온(1~30℃) / 36개월",
+          "chip": null
+        },
+        {
+          "label": "제조·판매",
+          "value": "(주)동구바이오제약",
+          "chip": "자사생산"
+        }
+      ]
+    },
+    {
+      "kind": "callouts",
+      "no": null,
+      "items": [
+        {
+          "tone": "info",
+          "title": "효능·효과",
+          "lead": "뇌혈관 결손에 의한 2차 증상 및 변성 또는 퇴행성 뇌기질성 정신증후군",
+          "bullets": [
+            "기억력저하와 착란",
+            "의욕 및 자발성 저하로 인한 방향감각 장애",
+            "의욕 및 자발성 저하, 집중력 감소"
+          ],
+          "note": null
+        },
+        {
+          "tone": "action",
+          "title": "용법·용량",
+          "lead": "1회 1캡슐 1일 2~3회",
+          "bullets": [],
+          "note": "경구투여 / 증상에 따라 적절히 증감"
+        }
+      ]
+    },
+    {
+      "kind": "icd",
+      "no": 2,
+      "title": "상병코드",
+      "title_en": "ICD-10 CODE",
+      "items": [
+        {
+          "code": "F00",
+          "name": "알츠하이머병에서의 치매"
+        },
+        {
+          "code": "F06",
+          "name": "뇌손상 등에 의한 기타 정신장애"
+        },
+        {
+          "code": "G31.9",
+          "name": "상세불명의 신경계통의 퇴행성 질환"
+        }
+      ]
+    },
+    {
+      "kind": "points",
+      "no": 3,
+      "title": "디테일 포인트",
+      "title_en": "KEY SELLING POINTS",
+      "items": [
+        {
+          "icon": "check",
+          "title": "손상된 뇌신경 세포 기능과 신경전달 기능 개선",
+          "desc": "Acetylcholine 합성 전구체 + 신경세포막 보호 이중 작용"
+        },
+        {
+          "icon": "check",
+          "title": "Donepezil과 병용 가능 및 병용 시 우수한 효과",
+          "desc": "ASCOMALVA trial: MMSE·IADL 저하 지연 (24개월, p<0.05)"
+        },
+        {
+          "icon": "check",
+          "title": "동구바이오제약 <em>국내 콜린알포세레이트 연질캡슐 18% 생산</em>",
+          "desc": null
+        }
+      ]
+    },
+    {
+      "kind": "notice",
+      "title": "⚠ 급여기준 안내 (고시 제2020-183호, '25.9.21 시행)",
+      "tone": "warn",
+      "blocks": [
+        {
+          "heading": null,
+          "paragraphs": [
+            "치매로 진단받은 환자의 뇌혈관 결손에 의한 2차 증상 및 변성 또는 퇴행성 뇌기질성 정신증후군에 투여 시 급여 인정.",
+            "그 외에는 본인부담률 80% 적용 (선별급여)."
+          ],
+          "bullets": []
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "left": "동구바이오제약 · 의약전문가용 자료 · 무단 전재 및 복제 금지",
+    "refs": [
+      "Refs: 식약처 허가사항 · 급여기준 고시 제2020-183호",
+      "※ 제품 상세 Reference는 브로셔 및 담당 마케팅팀 문의"
+    ]
+  },
+  "uncertain": []
+}

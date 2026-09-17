@@ -1,0 +1,288 @@
+{
+  "schema_version": "2.0",
+  "meta": null,
+  "header": {
+    "company": "동구바이오제약",
+    "product_name": "더모타손MLE",
+    "form": "로션",
+    "ingredient": "Mometasone furoate · 1mg/1g · 외용 스테로이드 (로션)",
+    "category": null,
+    "badges": [
+      {
+        "text": "전문의약품",
+        "kind": "plain"
+      },
+      {
+        "text": "264",
+        "kind": "code"
+      },
+      {
+        "text": "급여",
+        "kind": "covered"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "no": 1,
+      "layout_hint": null,
+      "kind": "spec_table",
+      "title": "제품 정보",
+      "title_en": "PRODUCT INFORMATION",
+      "rows": [
+        {
+          "label": "성분명",
+          "value": "Mometasone furoate",
+          "chip": null
+        },
+        {
+          "label": "함량",
+          "value": "1mg/1g (0.1%)",
+          "chip": null
+        },
+        {
+          "label": "약효분류",
+          "value": "피부과외용제 · 외용 스테로이드",
+          "chip": null
+        },
+        {
+          "label": "식약처분류",
+          "value": "진통·진양·수렴·소염제 (264)",
+          "chip": null
+        },
+        {
+          "label": "저장·유효",
+          "value": "기밀용기·실온(1~30℃) / 24개월",
+          "chip": null
+        },
+        {
+          "label": "제조·판매",
+          "value": "(주)동구바이오제약",
+          "chip": "자사생산"
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": "제품 정보 표 아래 초록색 한 줄 띠",
+      "kind": "text_box",
+      "title": null,
+      "badge": "MLE 로션",
+      "tone": "success",
+      "paragraphs": [
+        "삼출·모발부위·넓은 면적에 적합 · 30g/60g/90g 튜브"
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "variants",
+      "title": null,
+      "items": [
+        {
+          "name": "30g",
+          "badge": null,
+          "subtitle": null,
+          "tags": [],
+          "rows": [
+            {
+              "label": "보험코드",
+              "value": "657300282"
+            },
+            {
+              "label": "약가",
+              "value": "<em>5,520원</em>"
+            }
+          ],
+          "note": null
+        },
+        {
+          "name": "60g",
+          "badge": null,
+          "subtitle": null,
+          "tags": [],
+          "rows": [
+            {
+              "label": "보험코드",
+              "value": "657300284"
+            },
+            {
+              "label": "약가",
+              "value": "<em>11,040원</em>"
+            }
+          ],
+          "note": null
+        },
+        {
+          "name": "90g",
+          "badge": null,
+          "subtitle": null,
+          "tags": [],
+          "rows": [
+            {
+              "label": "보험코드",
+              "value": "657300285"
+            },
+            {
+              "label": "약가",
+              "value": "<em>13,800원</em>"
+            }
+          ],
+          "note": null
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": "MLE 기술 설명 박스",
+      "kind": "text_box",
+      "title": "Multi-Lamellar Emulsion",
+      "badge": "MLE",
+      "tone": "plain",
+      "paragraphs": [
+        "MLE는 천연세라마이드와 유사한 합성세라마이드인 PC-9S를 주축으로 피부 지질을 구성하는 세라마이드, 콜레스테롤, 지방산을 최적의 비율로 배합하여 라멜라 구조로 유화하는 기술을 포함하는 기제입니다. (PC-9S는 (주)네오팜에서 개발한 유사세라마이드)"
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "callouts",
+      "items": [
+        {
+          "tone": "info",
+          "title": "효능·효과",
+          "lead": "코르티코이드에 반응하는 피부질환의 가려움 및 염증 완화",
+          "bullets": [
+            "아토피 피부염 · 지루성 피부염 · 건선",
+            "접촉피부염 등 습진성 피부질환"
+          ],
+          "groups": [],
+          "note": null
+        },
+        {
+          "tone": "action",
+          "title": "용법·용량",
+          "lead": "<em>1일 1회</em>",
+          "bullets": [
+            "환부에 얇게 바르고 완전히 스며들 때까지 가볍게 문지름",
+            "밀봉붕대법 삼가 · 사용금기 2세 이하"
+          ],
+          "groups": [],
+          "note": null
+        }
+      ]
+    },
+    {
+      "no": 2,
+      "layout_hint": null,
+      "kind": "icd",
+      "title": "상병코드",
+      "title_en": "ICD-10 CODE",
+      "items": [
+        {
+          "code": "L23",
+          "name": "알레르기성 접촉피부염",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "L24",
+          "name": "자극물 접촉피부염",
+          "desc": null,
+          "tag": null
+        },
+        {
+          "code": "L30",
+          "name": "기타 피부염",
+          "desc": null,
+          "tag": null
+        }
+      ],
+      "note": null
+    },
+    {
+      "no": 3,
+      "layout_hint": null,
+      "kind": "points",
+      "title": "디테일 포인트",
+      "title_en": "KEY SELLING POINTS",
+      "stats_title": null,
+      "stats": [],
+      "items": [
+        {
+          "icon": "star",
+          "title": "MLE technology 적용",
+          "desc": "피부 지질 구성 성분(세라마이드/콜레스테롤/지방산)을 최적 비율로 배합하여 기제로 사용",
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "check",
+          "title": "Medium(IV등급)",
+          "desc": "TCS 강도 7단계 분류 시, 4단계 중간등급 해당",
+          "cite": null,
+          "highlight": false
+        },
+        {
+          "icon": "check",
+          "title": "모메타손 국내 처방 1위 · 로션/크림 라인업",
+          "desc": "부위·병변에 맞춘 제형 선택 (삼출→로션 / 건조·태선→크림)",
+          "cite": null,
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "no": null,
+      "layout_hint": "외용 스테로이드 강도 I~VII 7칸 눈금, IV 강조",
+      "kind": "table",
+      "title": "외용 스테로이드 강도 (7단계 중 IV · Medium)",
+      "columns": [],
+      "rows": [
+        [
+          "I",
+          "II",
+          "III",
+          "<em>IV</em>",
+          "V",
+          "VI",
+          "VII"
+        ],
+        [
+          "Super",
+          "High",
+          "High",
+          "<em>Medium</em>",
+          "Lower medium",
+          "Mild",
+          "Least"
+        ]
+      ],
+      "note": null
+    },
+    {
+      "no": null,
+      "layout_hint": null,
+      "kind": "notice",
+      "title": "⚠ 급여기준 (코르티코스테로이드 피부 도포제 일반원칙 · 고시 제2019-57호, 제품별 심사지침 없음)",
+      "tone": "warn",
+      "blocks": [
+        {
+          "heading": null,
+          "paragraphs": [
+            "허가사항 범위 내 요양급여 인정. 허가범위 초과 시 성인·소아의 백반증(얼굴·목·손 등 노출부위)에 각 약제 식약처 허가사항(용법·용량)에 따라 투여 시 인정 (단, 전신흡수 촉진 밀봉요법 제외)."
+          ],
+          "bullets": []
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "left": "동구바이오제약 · 의약전문가용 자료 · 무단 전재 및 복제 금지",
+    "refs": [
+      "Refs: 식약처 허가사항 · 급여기준 고시 제2019-57호",
+      "※ 제품 상세 Reference는 브로셔 및 담당 마케팅팀 문의"
+    ]
+  },
+  "uncertain": []
+}

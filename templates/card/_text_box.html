@@ -1,0 +1,7 @@
+  <section class="sec sec-text_box{% if s.no is not none or s.title_en %} numbered{% endif %}">
+{% if s.no is not none or s.title_en %}{% include "card/_section_title.html" %}
+{% endif %}    <div class="tbox {{ s.tone }}">
+{% if (s.title or s.badge) and not (s.no is not none or s.title_en) %}      <h3>{% if s.badge %}<span class="t-badge">{{ s.badge|em }}</span>{% endif %}{{ s.title|em }}</h3>
+{% endif %}{% for p in s.paragraphs %}      <p>{{ p|em }}</p>
+{% endfor %}    </div>
+  </section>

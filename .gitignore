@@ -1,0 +1,12 @@
+.venv/
+.env
+data.db
+data.db-journal
+storage/
+__pycache__/
+.pytest_cache/
+*.pyc
+.DS_Store
+# 골든/샘플 추출 결과(JSON)는 남기고, 슬라이스 이미지는 제외
+**/_*_slices/
+**/_*_slices_verify/
