@@ -4,6 +4,8 @@ PC용 제약 디테일카드 PNG → LLM 전사(JSON) → 원본 대조 검수 �
 
 ## 실행
 
+서버 배포는 [DEPLOY.md](DEPLOY.md) 참고.
+
 ```bash
 uv sync
 cp .env.example .env        # ANTHROPIC_API_KEY 입력
