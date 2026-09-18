@@ -39,7 +39,7 @@
   <section class="right">
     <div class="summary">
       <p class="crumb"><a href="/">← 목록으로</a></p>
-      <h1>{{ card.product_name }}{{ card.form or '' }}
+      <h1>{{ card.product_name }}
         {% if card.registered_at %}<span class="st st-done" id="regBadge">등록됨 · {{ card.registered_at[:16].replace('T',' ') }}</span>{% else %}<span class="st" id="regBadge">아직 저장 전</span>{% endif %}</h1>
       {% if verify_error %}
       <p class="warn-line">두 번째 읽기를 끝내지 못해 자동 대조를 하지 못했습니다. 모든 항목을 원본과 직접 대조해 주세요.</p>

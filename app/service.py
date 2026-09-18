@@ -10,7 +10,7 @@ from pathlib import Path
 from ulid import ULID
 
 from app import config, db
-from app.extractor import ExtractError, extract
+from app.extractor import ExtractError, extract, normalize_product_name
 from app.verify import verify
 from app.renderer import TEMPLATE_VERSION, render_card
 from app.slicer import TooManySlices, prepare
@@ -75,7 +75,7 @@ def run_pipeline(card_id: str) -> None:
         t0 = time.monotonic()
         r1 = extract(slices)
         extract_seconds = time.monotonic() - t0
-        payload = r1.data
+        payload = normalize_product_name(r1.data)
         payload["meta"] = {
             "card_id": card_id,
             "source_image": _rel(original),
@@ -133,5 +133,4 @@ def delete_card(card: dict) -> None:
 
 def download_name(card: dict) -> str:
     name = (card.get("product_name") or card["id"]).replace("/", "_")
-    form = card.get("form") or ""
-    return f"{name}{form}_mobile.html"
+    return f"{name}_mobile.html"

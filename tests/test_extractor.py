@@ -89,3 +89,17 @@ def test_other_schema_failure_is_friendly(hand_payload):
     with pytest.raises(ExtractError) as ei:
         postprocess_extract(hand_payload)
     assert "정해진 형식과 맞지 않습니다" in str(ei.value) and "company" in ei.value.detail
+
+
+def test_normalize_product_name():
+    from app.extractor import normalize_product_name
+    def run(name, form):
+        return normalize_product_name({"header": {"product_name": name, "form": form}})["header"]["product_name"]
+    assert run("구세", "정") == "구세정"
+    assert run("글리포스", "연질캡슐") == "글리포스연질캡슐"
+    assert run("구세정", "정") == "구세정"                 # 이미 붙어 있으면 그대로
+    assert run("동구에페리손", "정·서방정") == "동구에페리손"  # 복합 배지는 안 붙임
+    assert run("리나탑F", "패밀리") == "리나탑F"
+    assert run("자이그라", "3제형") == "자이그라"
+    assert run("나조타손", None) == "나조타손"
+    assert run("더모타손MLE", "<em>크림</em>") == "더모타손MLE크림"

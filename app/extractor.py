@@ -142,6 +142,24 @@ def postprocess_lines(raw: dict) -> dict:
     return data
 
 
+# ---------- 제품명 정규화 ----------
+
+# 여러 제형을 묶은 배지 (붙이면 이름이 이상해지는 것들)
+_COMPOUND_FORM = re.compile(r"[·/,+&\s]|패밀리|\d+제형|라인업")
+
+
+def normalize_product_name(payload: dict) -> dict:
+    """제품명에 단일 제형을 붙인다. "구세" + "정" → "구세정". form 은 그대로 둔다.
+    "정·서방정", "패밀리", "3제형" 같은 복합 배지는 붙이지 않는다. 이미 붙어 있으면 그대로."""
+    from app.sanitize import plain_text
+    h = payload.get("header") or {}
+    name = plain_text(h.get("product_name")).strip()
+    form = plain_text(h.get("form")).strip()
+    if name and form and not _COMPOUND_FORM.search(form) and not name.endswith(form):
+        h["product_name"] = name + form
+    return payload
+
+
 # ---------- 파이프라인 ----------
 
 def _call_and_parse(system: str, content: list[dict], post, provider: Provider | None = None) -> LLMResult:

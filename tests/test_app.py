@@ -80,7 +80,7 @@ def test_full_flow(client, expected):
     assert "<!DOCTYPE html>" in client.get(f"/cards/{card_id}/preview").text
     r = client.get(f"/cards/{card_id}/download")
     assert r.status_code == 200 and "attachment" in r.headers["content-disposition"]
-    assert (client.get(f"/cards/{card_id}/export.json").json())["header"]["product_name"] == "글리포스"
+    assert (client.get(f"/cards/{card_id}/export.json").json())["header"]["product_name"] == "글리포스연질캡슐"
     assert client.get(f"/cards/{card_id}/status").json()["status"] == "review"  # 다운로드는 등록이 아니다
 
     # 저장(등록)
@@ -228,7 +228,7 @@ def test_export_csv(client, expected):
     import csv, io
     rows = list(csv.reader(io.StringIO(text)))
     assert rows[0][:4] == ["고유번호", "제품명", "제형", "회사명"]
-    assert rows[1][0] == a and rows[1][1] == "글리포스" and rows[1][3] == "동구바이오제약"
+    assert rows[1][0] == a and rows[1][1] == "글리포스연질캡슐" and rows[1][2] == "연질캡슐" and rows[1][3] == "동구바이오제약"
     assert rows[1][6] == "done" and rows[1][8]  # 상태, 등록일
     assert '"header"' in rows[1][-1]  # payload JSON
 

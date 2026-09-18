@@ -218,7 +218,7 @@ const App = (() => {
         const r = await fetch(`/cards/${cardId}/save`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body || {}) });
         const j = await r.json();
         if (r.status === 409 && j.duplicate) {
-          $('#dupName').textContent = (j.duplicate.product_name || '') + (j.duplicate.form || '');
+          $('#dupName').textContent = j.duplicate.product_name || '';
           $('#dupWhen').textContent = '등록일 ' + (j.duplicate.registered_at || '').slice(0, 16).replace('T', ' ');
           $('#dupOpen').dataset.href = `/cards/${j.duplicate.id}`;
           $('#dupRenameBox').hidden = true; $('#dupNewName').value = '';
