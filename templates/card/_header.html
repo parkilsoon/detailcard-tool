@@ -1,9 +1,8 @@
   <header class="head">
-    <div class="corp"><span class="mark"></span>{{ header.company|em }}</div>
-    <h1 class="pname">{{ header.product_name|em }}{% if header.form %}<span class="pform">{{ header.form|em }}</span>{% endif %}</h1>
-    <p class="ingr">{{ header.ingredient|em }}</p>
-{% if header.category %}    <p class="cat">{{ header.category|em }}</p>
-{% endif %}{% if header.badges %}    <div class="tags">
+    <div class="head-top">{% if header.form %}<span class="pform">{{ header.form|em }}</span>{% endif %}<span class="corp">{{ header.company|em }}</span></div>
+    <h1 class="pname">{{ header.product_name|em }}</h1>
+    <p class="ingr">{{ header.ingredient|em }}{% if header.category %} · {{ header.category|em }}{% endif %}</p>
+{% if header.badges %}    <div class="tags">
 {% for b in header.badges %}      <span class="tag {{ b.kind }}">{{ b.text|em }}</span>
 {% endfor %}    </div>
 {% endif %}  </header>
