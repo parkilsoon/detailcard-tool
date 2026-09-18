@@ -60,12 +60,14 @@ body{
 .sec-h .en{font-size:11px;font-weight:600;color:var(--label);letter-spacing:.04em;}
 .sub-h{margin:0 0 4px;font-size:15px;font-weight:800;color:var(--ink);}
 
-/* ── 제품정보 (테두리 없는 표) ── */
-.spec{margin:0;}
-.row{display:flex;padding:8px 0;border-top:1px solid #f1f3f5;}
-.row:first-child{border-top:0;}
-.row dt{flex:none;width:84px;font-size:13px;color:var(--label);font-weight:500;}
-.row dd{margin:0;font-size:13.5px;flex:1;min-width:0;color:var(--ink);}
+/* ── 제품정보 (테두리 없는 표) ──
+   라벨 칸은 가장 긴 라벨에 맞춰 자동으로 넓어지고(최소 84px), 값과 14px 간격을 둔다 */
+.spec{margin:0;display:grid;grid-template-columns:minmax(84px,max-content) 1fr;}
+.row{display:contents;}
+.row dt,.row dd{padding:8px 0;border-top:1px solid #f1f3f5;}
+.row:first-child dt,.row:first-child dd{border-top:0;}
+.row dt{font-size:13px;color:var(--label);font-weight:500;padding-right:14px;}
+.row dd{margin:0;font-size:13.5px;min-width:0;color:var(--ink);}
 .row dd em{color:var(--green-deep);}
 .chip{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;color:var(--chip-ink);background:var(--chip-bg);border-radius:4px;padding:1px 7px;vertical-align:1px;}
 
@@ -169,6 +171,7 @@ body{
 
 @media (max-width:340px){
   .pname{font-size:23px;}
-  .row dt{width:74px;font-size:12px;}
+  .spec{grid-template-columns:minmax(72px,max-content) 1fr;}
+  .row dt{font-size:12px;padding-right:10px;}
   .tiles{flex-direction:column;}
 }
