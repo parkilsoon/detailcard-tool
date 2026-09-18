@@ -1,8 +1,8 @@
 /* 모바일 디테일카드 공용 스타일 v2 — 피그마 "동구바이오 전용관" 디자인 기준. 제품별 커스텀 금지 */
 :root{
   color-scheme: light;
-  --green:#3fa35b;        /* 헤더·포인트 */
-  --green-deep:#2f8a49;
+  --green:#5DA246;        /* 헤더·포인트 (피그마 기준) */
+  --green-deep:#4a8a36;
   --green-soft:#e8f5ec;   /* 강조 타일·코드 배지 */
   --green-line:#cfe8d6;
   --blue:#1a6fd4;         /* 본문 강조 */
