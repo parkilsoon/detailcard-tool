@@ -227,6 +227,8 @@ def export_csv():
     w = csv.writer(buf)
     w.writerow(labels)
     for r in db.all_cards_for_export():
+        r = dict(r)
+        r["coverage"] = db.COVERAGE_LABELS.get(r.get("coverage"), r.get("coverage"))
         w.writerow([r.get(c) if r.get(c) is not None else "" for c in cols])
     fname = f"detailcards_{db.now_iso()[:10]}.csv"
     return StreamingResponse(iter([buf.getvalue()]), media_type="text/csv; charset=utf-8",

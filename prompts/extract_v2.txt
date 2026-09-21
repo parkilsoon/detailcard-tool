@@ -69,7 +69,7 @@ badges[].kind 열거형:
   "covered"     급여
   "noncovered"  비급여
   "selective"   선별급여
-  "mixed"       급여·비급여 병기
+  "mixed"       급여·비급여 병기 (예: "급여·비급여", "급여/비급여")
 
 모든 섹션 공통 필드:
   "no":          섹션 제목 앞 번호. 없으면 null

@@ -94,6 +94,36 @@ def list_cards(limit: int = 200) -> list[dict]:
         return [dict(r) for r in rows]
 
 
+COVERAGE_LABELS = {"both": "급여·비급여", "covered": "급여", "noncovered": "비급여", "selective": "선별급여"}
+
+
+def coverage_from_badges(badges: list[dict] | None) -> str | None:
+    """상단 배지에서 급여 구분을 판정한다. 배지 종류(kind)와 글자(text)를 모두 본다.
+    급여+비급여가 같이 있으면 both. 정말 정보가 없을 때만 None."""
+    from app.sanitize import plain_text
+    covered = noncovered = selective = False
+    for b in badges or []:
+        kind = b.get("kind")
+        text = plain_text(b.get("text")).replace(" ", "")
+        if kind == "selective" or "선별급여" in text:
+            selective = True
+        if kind == "noncovered" or "비급여" in text:
+            noncovered = True
+        if kind == "covered" or kind == "mixed" or "급여" in text.replace("비급여", "").replace("선별급여", ""):
+            covered = True
+        if kind == "mixed":
+            covered = noncovered = True
+    if covered and noncovered:
+        return "both"
+    if covered:
+        return "covered"
+    if noncovered:
+        return "noncovered"
+    if selective:
+        return "selective"
+    return None
+
+
 def _summary_columns(payload: dict) -> dict[str, Any]:
     """payload 에서 목록·후속 DB 설계용 컬럼을 뽑는다. 저장 시점에 한 번 동기화."""
     from app.sanitize import plain_text
@@ -113,10 +143,7 @@ def _summary_columns(payload: dict) -> dict[str, Any]:
                         code = plain_text(r.get("value")); break
                 if code:
                     break
-    coverage = None
-    for b in header.get("badges") or []:
-        if b.get("kind") in ("covered", "noncovered", "selective"):
-            coverage = b["kind"]
+    coverage = coverage_from_badges(header.get("badges"))
     return dict(product_name=plain_text(header.get("product_name")),
                 form=plain_text(header.get("form")) or None,
                 company=plain_text(header.get("company")) or None,
@@ -187,6 +214,15 @@ def register(card_id: str, template_version: str, html_path: str) -> None:
         con.execute("UPDATE cards SET status='done', template_version=?, html_path=?,"
                     " registered_at=COALESCE(registered_at, ?), updated_at=? WHERE id=?",
                     (template_version, html_path, ts, ts, card_id))
+
+
+def resync_summary_columns() -> int:
+    """모든 카드의 요약 컬럼(제품명·제형·회사명·보험코드·급여구분)을 payload 로부터 다시 계산한다."""
+    with connect() as con:
+        rows = con.execute("SELECT id, payload FROM cards WHERE payload != '{}'").fetchall()
+    for r in rows:
+        save_payload(r["id"], json.loads(r["payload"]))
+    return len(rows)
 
 
 def unfinished_card_ids() -> list[str]:

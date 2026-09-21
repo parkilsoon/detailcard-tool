@@ -229,7 +229,7 @@ def test_export_csv(client, expected):
     rows = list(csv.reader(io.StringIO(text)))
     assert rows[0][:4] == ["고유번호", "제품명", "제형", "회사명"]
     assert rows[1][0] == a and rows[1][1] == "글리포스연질캡슐" and rows[1][2] == "연질캡슐" and rows[1][3] == "동구바이오제약"
-    assert rows[1][6] == "done" and rows[1][8]  # 상태, 등록일
+    assert rows[1][5] == "급여" and rows[1][6] == "done" and rows[1][8]  # 급여구분(한글), 상태, 등록일
     assert '"header"' in rows[1][-1]  # payload JSON
 
 
