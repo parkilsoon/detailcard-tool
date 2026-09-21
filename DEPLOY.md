@@ -16,7 +16,9 @@ DB(`data.db`)와 원본·산출물(`storage/`)은 프로젝트 폴더 안에 파
 
 ---
 
-## 2. Ubuntu / Debian 계열
+## 2. Ubuntu / Debian 계열 (현재 미니 PC 구성)
+
+경로는 `~/dev/Detailcard`, 서비스는 **사용자 범위(systemd --user)** 로 등록되어 있다. `sudo` 없이 `systemctl --user` 를 쓴다.
 
 ### 2-1. 설치
 
@@ -25,12 +27,11 @@ sudo apt update && sudo apt install -y git python3.11 python3.11-venv curl
 curl -LsSf https://astral.sh/uv/install.sh | sh        # uv 설치
 source ~/.bashrc
 
-sudo mkdir -p /opt/detailcard && sudo chown $USER /opt/detailcard
-git clone https://github.com/parkilsoon/detailcard-tool.git /opt/detailcard
-cd /opt/detailcard
+git clone https://github.com/parkilsoon/detailcard-tool.git ~/dev/Detailcard
+cd ~/dev/Detailcard
 uv sync                                                 # 의존성 설치 (.venv 생성)
 cp .env.example .env
-nano .env                                               # 아래 3-1 참고
+nano .env                                               # 아래 4 참고
 ```
 
 ### 2-2. 동작 확인
@@ -39,52 +40,68 @@ nano .env                                               # 아래 3-1 참고
 uv run pytest -q                                        # 테스트 (LLM 호출 없음)
 uv run uvicorn app.main:app --host 0.0.0.0 --port 8765  # 수동 실행
 ```
-다른 PC 브라우저에서 `http://<미니PC IP>:8765` 접속이 되면 Ctrl+C 로 끄고 서비스 등록으로 넘어갑니다.
+다른 PC 브라우저에서 `http://<미니PC IP>:8765` 접속이 되면 Ctrl+C 로 끄고 서비스 등록으로 넘어간다.
+방화벽(ufw 사용 시): `sudo ufw allow 8765/tcp`
 
-### 2-3. 서비스 등록 (부팅 시 자동 시작, 죽으면 재시작)
+### 2-3. 서비스 등록 (사용자 범위)
 
 ```bash
-sudo tee /etc/systemd/system/detailcard.service > /dev/null <<'UNIT'
+mkdir -p ~/.config/systemd/user
+tee ~/.config/systemd/user/detailcard.service > /dev/null <<'UNIT'
 [Unit]
 Description=Detail card mobile converter
 After=network-online.target
-Wants=network-online.target
 
 [Service]
-User=%i
-WorkingDirectory=/opt/detailcard
-ExecStart=/opt/detailcard/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8765
+WorkingDirectory=%h/dev/Detailcard
+ExecStart=%h/dev/Detailcard/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8765
 Restart=always
 RestartSec=5
 Environment=PYTHONUNBUFFERED=1
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
 UNIT
-sudo sed -i "s/User=%i/User=$USER/" /etc/systemd/system/detailcard.service
-sudo systemctl daemon-reload
-sudo systemctl enable --now detailcard
-sudo systemctl status detailcard --no-pager
+systemctl --user daemon-reload
+systemctl --user enable --now detailcard
+systemctl --user status detailcard --no-pager
+sudo loginctl enable-linger $USER     # 로그아웃·재부팅 후에도 서비스가 살아 있게 (한 번만)
 ```
 
-로그 보기: `journalctl -u detailcard -f`
-방화벽(ufw 사용 시): `sudo ufw allow 8765/tcp`
+로그 보기: `journalctl --user -u detailcard -f`
+linger 확인: `loginctl show-user $USER | grep Linger` → `Linger=yes` 여야 한다.
 
-> 서버가 처리 도중 재시작되면 "추출 중"이던 카드는 자동으로 다시 큐에 들어갑니다. `--reload` 옵션은 개발용이므로 서비스에는 넣지 않습니다.
+> 처리 도중 재시작되면 "추출 중"이던 카드는 자동으로 다시 큐에 들어간다. `--reload` 옵션은 개발용이므로 서비스에는 넣지 않는다.
 
-### 2-4. 업데이트
+### 2-4. 업데이트 (코드 반영)
 
 ```bash
-cd /opt/detailcard && git pull && uv sync && sudo systemctl restart detailcard
+cd ~/dev/Detailcard && git pull && uv sync && systemctl --user restart detailcard
 ```
 
-### 2-5. 백업
+급여 판정처럼 **저장된 데이터의 요약 컬럼 규칙이 바뀐 경우**에는 재시작 전에 한 줄 더:
+```bash
+systemctl --user stop detailcard
+uv run python scripts/resync_columns.py
+systemctl --user start detailcard
+```
+
+### 2-5. 초기화 (처음부터 다시)
 
 ```bash
-# data.db 와 storage/ 만 있으면 전부 복원됩니다
-tar czf ~/detailcard-backup-$(date +%F).tgz -C /opt/detailcard data.db storage .env
+systemctl --user stop detailcard
+cd ~/dev/Detailcard
+tar czf ~/detailcard-before-reset-$(date +%F).tgz data.db storage 2>/dev/null   # 백업 (선택)
+rm -f data.db data.db-journal && rm -rf storage
+systemctl --user start detailcard      # 빈 DB 자동 생성
 ```
-매일 자동으로 하려면 `crontab -e` 에 `0 3 * * * tar czf /backup/detailcard-$(date +\%F).tgz -C /opt/detailcard data.db storage .env` 를 추가합니다.
+
+### 2-6. 백업
+
+```bash
+tar czf ~/detailcard-backup-$(date +%F).tgz -C ~/dev/Detailcard data.db storage .env
+```
+매일 자동: `crontab -e` 에 `0 3 * * * tar czf /backup/detailcard-$(date +\%F).tgz -C $HOME/dev/Detailcard data.db storage .env`
 
 ---
 
