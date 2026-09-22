@@ -101,10 +101,11 @@ def test_lists_have_no_css_bullets():
 
 
 def test_color_tags_whitelist():
-    out = str(em('<red>위험</red> <em><blue>굵은 파랑</blue></em> <green>g</green> <black>b</black> <span class="c-red">x</span> <red onclick="a()">y</red>'))
+    out = str(em('<red>위험</red> <em><blue>굵은 파랑</blue></em> <green>g</green> <gray>b</gray> <black>old</black> <span class="c-red">x</span> <red onclick="a()">y</red>'))
     assert '<span class="c-red">위험</span>' in out
     assert '<em><span class="c-blue">굵은 파랑</span></em>' in out
-    assert '<span class="c-green">g</span>' in out and '<span class="c-black">b</span>' in out
+    assert '<span class="c-green">g</span>' in out and '<span class="c-gray">b</span>' in out
+    assert '<span class="c-gray">old</span>' in out   # 옛 이름 black 도 회색으로
     assert '&lt;span class=&quot;c-red&quot;&gt;x&lt;/span&gt;' in out          # 직접 쓴 span 은 태그로 살아나지 않음
     assert '&lt;red onclick=&quot;a()&quot;&gt;' in out                          # 속성 붙은 red 는 이스케이프
 

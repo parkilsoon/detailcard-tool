@@ -2,7 +2,7 @@
 
 렌더 시 모든 문자열을 이스케이프한 뒤, 아래 태그만 실제 태그로 복원한다.
   <em>            굵게(강조)                      → <em>
-  <red> <blue> <green> <black>   글자색 (검수자가 넣음)   → <span class="c-red"> …
+  <red> <blue> <green> <gray>    글자색 (검수자가 넣음)   → <span class="c-red"> …   (<black> 은 <gray> 의 옛 이름, 같은 회색)
 블랙리스트(특정 태그 제거)가 아니라 화이트리스트 방식이다. 속성은 어떤 태그에도 허용하지 않는다.
 """
 from __future__ import annotations
@@ -12,11 +12,12 @@ from html import escape
 
 from markupsafe import Markup
 
-COLOR_TAGS = ("red", "blue", "green", "black")
+COLOR_TAGS = ("red", "blue", "green", "gray", "black")   # black = gray 의 옛 이름 (호환)
+COLOR_CLASS = {"red": "c-red", "blue": "c-blue", "green": "c-green", "gray": "c-gray", "black": "c-gray"}
 ALLOWED_TAGS = ("em",) + COLOR_TAGS
 
 _ANY_TAG = re.compile(r"</?([a-zA-Z][a-zA-Z0-9]*)[^>]*>")
-_ALLOWED_STRIP = re.compile(r"</?(?:em|red|blue|green|black)>", re.IGNORECASE)
+_ALLOWED_STRIP = re.compile(r"</?(?:em|red|blue|green|gray|black)>", re.IGNORECASE)
 
 
 def em(value: object) -> Markup:
@@ -27,7 +28,7 @@ def em(value: object) -> Markup:
     s = re.sub(r"&lt;em&gt;", "<em>", s, flags=re.I)
     s = re.sub(r"&lt;/em&gt;", "</em>", s, flags=re.I)
     for c in COLOR_TAGS:
-        s = re.sub(rf"&lt;{c}&gt;", f'<span class="c-{c}">', s, flags=re.I)
+        s = re.sub(rf"&lt;{c}&gt;", f'<span class="{COLOR_CLASS[c]}">', s, flags=re.I)
         s = re.sub(rf"&lt;/{c}&gt;", "</span>", s, flags=re.I)
     return Markup(s)
 

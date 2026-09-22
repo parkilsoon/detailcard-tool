@@ -15,11 +15,11 @@
   --chip-bg:#fff4d6;      /* 자사생산 */
   --chip-ink:#b7791f;
   --hl-bg:#fff6cc;        /* 표 강조 행 */
-  /* 검수자가 넣는 글자색 (임시값 — 정확한 색상값은 추후 교체) */
-  --c-red:#d93025;
-  --c-blue:#1a6fd4;
-  --c-green:#4a8a36;
-  --c-black:#1f2937;
+  /* 검수자가 넣는 글자색 (2026-09-22 확정값) */
+  --c-red:#BA4C44;
+  --c-blue:#2A5F97;
+  --c-green:#589B25;
+  --c-gray:#B1B7BB;
   --r:12px;
 }
 *{box-sizing:border-box;}
@@ -39,8 +39,8 @@ body{
 .wrap .c-red{color:var(--c-red);}
 .wrap .c-blue{color:var(--c-blue);}
 .wrap .c-green{color:var(--c-green);}
-.wrap .c-black{color:var(--c-black);}
-.head .c-red{color:#ffd1cc;} .head .c-blue{color:#d6e8ff;} .head .c-green{color:#dff5e3;} .head .c-black{color:#fff;}
+.wrap .c-gray{color:var(--c-gray);}
+.head .c-red{color:#ffd1cc;} .head .c-blue{color:#d6e8ff;} .head .c-green{color:#dff5e3;} .head .c-gray{color:#e5e7eb;}
 
 /* ── 헤더 (진녹색) ── */
 .head{padding:14px 20px 18px;background:var(--green);color:#fff;}
