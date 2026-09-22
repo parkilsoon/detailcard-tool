@@ -154,3 +154,5 @@ a{color:var(--brand)}
 .tab.on{background:var(--brand);border-color:var(--brand);color:#fff}
 .tab.on b{color:#fff}
 .flash{margin:0 0 12px;padding:8px 12px;background:#e8f4e8;border-left:4px solid var(--ok);border-radius:6px;font-size:13.5px}
+.list th.chk,.list td.chk{width:34px;text-align:center;padding-left:10px;padding-right:0}
+.list td.chk input,.list th.chk input{width:16px;height:16px;cursor:pointer}

@@ -292,3 +292,18 @@ def test_requeue_unfinished(client, expected, monkeypatch):
     monkeypatch.setattr(service, "enqueue", lambda cid: queued.append(cid))
     assert service.requeue_unfinished() == 1 and queued == [a]
     assert db.get_card(a)["status"] == "extracting"
+
+
+def test_export_csv_selected_ids(client, expected):
+    a = _upload(client, expected)
+    b = _upload(client, expected)
+    c = _upload(client, expected)
+    import csv, io
+    def ids_of(resp):
+        return [r[0] for r in list(csv.reader(io.StringIO(resp.content.decode("utf-8-sig"))))[1:]]
+    assert sorted(ids_of(client.get("/export.csv"))) == sorted([a, b, c])          # 전체
+    r = client.get(f"/export.csv?ids={c},{a}")
+    assert ids_of(r) == [c, a] and "selected_" in r.headers["content-disposition"]  # 선택, 주어진 순서
+    assert ids_of(client.get("/export.csv?ids=")) and len(ids_of(client.get("/export.csv?ids="))) == 3  # 빈 값은 전체
+    page = client.get("/").text
+    assert 'id="chkAll"' in page and page.count('class="rowChk"') == 3

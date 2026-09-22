@@ -254,9 +254,14 @@ def delete_card(card_id: str) -> None:
         con.execute("DELETE FROM cards WHERE id=?", (card_id,))
 
 
-def all_cards_for_export() -> list[dict]:
+def all_cards_for_export(ids: list[str] | None = None) -> list[dict]:
+    """ids 를 주면 그 카드들만 (주어진 순서대로), 없으면 전체."""
+    sql = ("SELECT id, product_name, form, company, insurance_code, coverage, status, created_at, registered_at,"
+           " updated_at, html_path, model, prompt_version, template_version, payload FROM cards")
     with connect() as con:
-        rows = con.execute(
-            "SELECT id, product_name, form, company, insurance_code, coverage, status, created_at, registered_at,"
-            " updated_at, html_path, model, prompt_version, template_version, payload FROM cards ORDER BY id").fetchall()
-        return [dict(r) for r in rows]
+        if ids:
+            marks = ",".join("?" * len(ids))
+            rows = con.execute(f"{sql} WHERE id IN ({marks})", ids).fetchall()
+            order = {cid: i for i, cid in enumerate(ids)}
+            return sorted((dict(r) for r in rows), key=lambda r: order[r["id"]])
+        return [dict(r) for r in con.execute(f"{sql} ORDER BY id").fetchall()]

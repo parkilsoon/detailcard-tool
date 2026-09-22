@@ -217,7 +217,9 @@ def delete_card(card_id: str):
 
 
 @app.get("/export.csv")
-def export_csv():
+def export_csv(ids: str | None = None):
+    """ids=콤마구분 고유번호 목록이면 선택한 카드만, 없으면 전체."""
+    id_list = [x for x in (ids or "").split(",") if x.strip()] or None
     cols = ["id", "product_name", "form", "company", "insurance_code", "coverage", "status", "created_at",
             "registered_at", "updated_at", "html_path", "model", "prompt_version", "template_version", "payload"]
     labels = ["고유번호", "제품명", "제형", "회사명", "보험코드", "급여구분", "상태", "업로드일", "등록일", "수정일",
@@ -226,11 +228,11 @@ def export_csv():
     buf.write("\ufeff")  # 엑셀에서 한글이 깨지지 않게 BOM
     w = csv.writer(buf)
     w.writerow(labels)
-    for r in db.all_cards_for_export():
+    for r in db.all_cards_for_export(id_list):
         r = dict(r)
         r["coverage"] = db.COVERAGE_LABELS.get(r.get("coverage"), r.get("coverage"))
         w.writerow([r.get(c) if r.get(c) is not None else "" for c in cols])
-    fname = f"detailcards_{db.now_iso()[:10]}.csv"
+    fname = f"detailcards_{'selected_' if id_list else ''}{db.now_iso()[:10]}.csv"
     return StreamingResponse(iter([buf.getvalue()]), media_type="text/csv; charset=utf-8",
                              headers={"Content-Disposition": f'attachment; filename="{fname}"'})
 

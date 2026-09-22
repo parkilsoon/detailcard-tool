@@ -55,6 +55,23 @@ const App = (() => {
     const root = $('#list'); if (!root) return;
     const tab = root.dataset.tab;
     const rows = $$('tbody tr');
+
+    // 선택 → CSV 버튼. 선택이 없으면 전체 내보내기
+    const csvBtn = $('#csvBtn'), chkAll = $('#chkAll');
+    const visibleChks = () => $$('.rowChk').filter(c => !c.closest('tr').hidden);
+    const syncCsv = () => {
+      const sel = $$('.rowChk:checked').map(c => c.value);
+      if (sel.length) { csvBtn.href = '/export.csv?ids=' + sel.join(','); csvBtn.textContent = `선택 ${sel.length}건 CSV`; }
+      else { csvBtn.href = '/export.csv'; csvBtn.textContent = '데이터 출력 (CSV)'; }
+      if (chkAll) {
+        const vis = visibleChks(); const n = vis.filter(c => c.checked).length;
+        chkAll.checked = vis.length > 0 && n === vis.length;
+        chkAll.indeterminate = n > 0 && n < vis.length;
+      }
+    };
+    if (chkAll) chkAll.addEventListener('change', () => { visibleChks().forEach(c => { c.checked = chkAll.checked; }); syncCsv(); });
+    $$('.rowChk').forEach(c => c.addEventListener('change', syncCsv));
+    syncCsv();
     if (tab !== 'all') { const vis = rows.filter(r => !r.hidden).length; if (rows.length && !vis) $('#tabEmpty').hidden = false; }
     if (!rows.some(r => r.dataset.status === 'processing')) return;
     const snapshot = JSON.stringify(rows.map(r => r.dataset.status));
