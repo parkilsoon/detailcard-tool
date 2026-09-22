@@ -112,8 +112,8 @@ body{
 .info .lead{margin:0 0 6px;font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.5;}
 .info .lead em{color:var(--green-deep);}
 .info ul{margin:0;padding:0;list-style:none;}
-.info li{position:relative;padding-left:10px;font-size:13.5px;color:var(--ink);margin-top:3px;}
-.info li::before{content:"·";position:absolute;left:0;top:0;color:var(--ink-soft);font-weight:700;}
+/* 목록 앞 기호는 그리지 않는다. 필요하면 검수 화면에서 문장 앞에 직접 넣는다 */
+.info li{font-size:13.5px;color:var(--ink);margin-top:3px;}
 .info .note{margin:8px 0 0;font-size:12.5px;color:var(--ink-soft);}
 .action .lead{margin:0;font-size:16px;font-weight:800;letter-spacing:-.02em;color:var(--green-deep);line-height:1.4;}
 .action .lead em{color:var(--green-deep);}
@@ -159,7 +159,7 @@ body{
 .warn p em{color:var(--ink);}
 .warn p + p{margin-top:5px;}
 .warn h4{margin:9px 0 3px;font-size:12.5px;font-weight:800;color:var(--ink);}
-.warn ul{margin:2px 0 0;padding-left:16px;font-size:13px;line-height:1.7;color:var(--ink-soft);}
+.warn ul{margin:2px 0 0;padding-left:0;list-style:none;font-size:13px;line-height:1.7;color:var(--ink-soft);}
 .warn.info{background:#f8f9fa;}
 .warn.noncovered{background:#fff1f0;}
 .warn.noncovered h3,.warn.noncovered h4{color:#b3312d;}

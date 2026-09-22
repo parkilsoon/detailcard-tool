@@ -91,3 +91,10 @@ def test_numbered_table_renders_section_header():
     t["no"], t["title"], t["title_en"] = 2, "성분·작용", "INGREDIENTS & FUNCTION"
     html = render_card(d)
     assert "INGREDIENTS &amp; FUNCTION" in html and 'class="sec sec-table numbered"' in html
+
+
+def test_lists_have_no_css_bullets():
+    css = (__import__("app.config", fromlist=["STATIC_DIR"]).STATIC_DIR / "card.css").read_text(encoding="utf-8")
+    assert 'li::before' not in css
+    assert 'content:"·"' not in css
+    assert '.warn ul{margin:2px 0 0;padding-left:0;list-style:none' in css
