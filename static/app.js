@@ -173,14 +173,14 @@ const App = (() => {
       // 강조가 들어간 값은 아래에 굵게 렌더한 미리보기를 보여준다 (태그를 몰라도 결과를 알 수 있게)
       const pv = document.createElement('div'); pv.className = 'em-preview'; f.appendChild(pv);
       const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      const TAGS = ['em', 'red', 'blue', 'green', 'gray', 'black'];
+      const TAGS = ['em', 'red', 'blue', 'green', 'gray'];
       const renderPv = () => {
         const v = ctl.value;
-        if (!/<(em|red|blue|green|gray|black)>/i.test(v)) { pv.hidden = true; return; }
+        if (!/<(em|red|blue|green|gray)>/i.test(v)) { pv.hidden = true; return; }
         pv.hidden = false;
         let h = esc(v).replace(/&lt;em&gt;/gi, '<em>').replace(/&lt;\/em&gt;/gi, '</em>');
-        for (const c of ['red', 'blue', 'green', 'gray', 'black']) {
-          h = h.replace(new RegExp('&lt;' + c + '&gt;', 'gi'), '<span class="c-' + (c === 'black' ? 'gray' : c) + '">').replace(new RegExp('&lt;/' + c + '&gt;', 'gi'), '</span>');
+        for (const c of ['red', 'blue', 'green', 'gray']) {
+          h = h.replace(new RegExp('&lt;' + c + '&gt;', 'gi'), '<span class="c-' + c + '">').replace(new RegExp('&lt;/' + c + '&gt;', 'gi'), '</span>');
         }
         pv.innerHTML = h;
       };
@@ -224,7 +224,7 @@ const App = (() => {
             out = v.slice(0, s) + sel.slice(open.length, -close.length) + v.slice(en); caret = en - open.length - close.length;
           } else {
             // 다른 색이 이미 감싸고 있으면 그 색을 벗기고 새 색으로
-            const m = sel.match(/^<(red|blue|green|gray|black)>([\s\S]*)<\/\1>$/);
+            const m = sel.match(/^<(red|blue|green|gray)>([\s\S]*)<\/\1>$/);
             const inner = (m && tag !== 'em') ? m[2] : sel;
             out = v.slice(0, s) + open + inner + close + v.slice(en); caret = s + open.length + inner.length + close.length;
           }

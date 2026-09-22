@@ -105,7 +105,7 @@ def test_color_tags_whitelist():
     assert '<span class="c-red">위험</span>' in out
     assert '<em><span class="c-blue">굵은 파랑</span></em>' in out
     assert '<span class="c-green">g</span>' in out and '<span class="c-gray">b</span>' in out
-    assert '<span class="c-gray">old</span>' in out   # 옛 이름 black 도 회색으로
+    assert '&lt;black&gt;old&lt;/black&gt;' in out   # black 은 허용 태그가 아니라 이스케이프
     assert '&lt;span class=&quot;c-red&quot;&gt;x&lt;/span&gt;' in out          # 직접 쓴 span 은 태그로 살아나지 않음
     assert '&lt;red onclick=&quot;a()&quot;&gt;' in out                          # 속성 붙은 red 는 이스케이프
 
