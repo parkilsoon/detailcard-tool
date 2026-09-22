@@ -96,12 +96,15 @@ def test_full_flow(client, expected):
     assert client.get(f"/cards/{card_id}/status").json()["status"] == "review"
     client.post(f"/cards/{card_id}/save", json={})
     assert db.get_card(card_id)["registered_at"] == first_reg
-    # 등록된 항목은 삭제 불가
-    assert client.post(f"/cards/{card_id}/delete", follow_redirects=False).status_code == 409
 
     # 목록
     idx = client.get("/").text
     assert "글리포스" in idx and "동구바이오제약" in idx and "등록됨" in idx
+
+    # 등록된 항목도 완전 삭제 가능 (마지막에)
+    r = client.post(f"/cards/{card_id}/delete", follow_redirects=False)
+    assert r.status_code == 303 and db.get_card(card_id) is None
+    assert not (config.STORAGE_DIR / card_id).exists()
 
 
 def test_failed_flow(client, expected, monkeypatch):
@@ -238,7 +241,7 @@ def test_draft_delete_button_only_before_register(client, expected):
     assert 'danger">초안 삭제' in client.get(f"/cards/{a}").text
     client.post(f"/cards/{a}/save", json={})
     page = client.get(f"/cards/{a}").text
-    assert 'danger">초안 삭제' not in page
+    assert 'danger">카드 삭제' in page                # 등록 후에도 완전 삭제 가능
     assert "기존 항목 열기 (이 초안 삭제)" in page  # 중복 모달의 버튼 문구
 
 
@@ -307,3 +310,16 @@ def test_export_csv_selected_ids(client, expected):
     assert ids_of(client.get("/export.csv?ids=")) and len(ids_of(client.get("/export.csv?ids="))) == 3  # 빈 값은 전체
     page = client.get("/").text
     assert 'id="chkAll"' in page and page.count('class="rowChk"') == 3
+
+
+def test_bulk_delete(client, expected):
+    from app import config, db
+    a, b, c = _upload(client, expected), _upload(client, expected), _upload(client, expected)
+    client.post(f"/cards/{a}/save", json={})       # 등록된 것도 포함
+    r = client.post("/cards/delete", data={"ids": f"{a},{c},없는아이디"}, follow_redirects=False)
+    assert r.status_code == 303 and "2" in r.headers["location"]
+    assert db.get_card(a) is None and db.get_card(c) is None and db.get_card(b) is not None
+    assert not (config.STORAGE_DIR / a).exists() and (config.STORAGE_DIR / b).exists()
+    page = client.get("/").text
+    assert 'id="bulkDelete"' in page and 'class="btn delete"' in page
+    assert '/delete" class="inline"' not in page          # 행별 삭제 버튼 없음

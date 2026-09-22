@@ -12,6 +12,8 @@ a{color:var(--brand)}
 .btn:hover{border-color:#b8c4d2}
 .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
 .btn.ghost{background:transparent}
+.btn.delete{background:#d93025;border-color:#d93025;color:#fff}
+.btn.delete:disabled{background:#f3b6b1;border-color:#f3b6b1;color:#fff;cursor:not-allowed}
 .btn.danger{color:#b91c1c;border-color:#f0c4c4}
 .btn.danger:hover{background:#fde8e8}
 .btn.small{padding:5px 10px;font-size:12.5px}
@@ -135,6 +137,7 @@ a{color:var(--brand)}
 .crumb{margin:0 0 8px;font-size:12.5px}
 .crumb a{color:var(--soft);text-decoration:none}
 .inline{display:inline}
+.inline[hidden]{display:none}
 .summary h1 .st{margin-left:10px;vertical-align:middle;font-size:12px}
 .modal-box.narrow{width:520px}
 .modal-body{padding:14px 16px;font-size:14px}

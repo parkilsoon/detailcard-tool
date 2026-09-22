@@ -59,10 +59,12 @@ const App = (() => {
     // 선택 → CSV 버튼. 선택이 없으면 전체 내보내기
     const csvBtn = $('#csvBtn'), chkAll = $('#chkAll');
     const visibleChks = () => $$('.rowChk').filter(c => !c.closest('tr').hidden);
+    const bulk = $('#bulkDelete'), bulkIds = $('#bulkIds'), bulkBtn = $('#bulkDeleteBtn');
     const syncCsv = () => {
       const sel = $$('.rowChk:checked').map(c => c.value);
       if (sel.length) { csvBtn.href = '/export.csv?ids=' + sel.join(','); csvBtn.textContent = `선택 ${sel.length}건 CSV`; }
       else { csvBtn.href = '/export.csv'; csvBtn.textContent = '데이터 출력 (CSV)'; }
+      if (bulk) { bulkIds.value = sel.join(','); bulkBtn.disabled = sel.length === 0; bulkBtn.textContent = sel.length ? `선택 ${sel.length}건 삭제` : '선택 삭제'; }
       if (chkAll) {
         const vis = visibleChks(); const n = vis.filter(c => c.checked).length;
         chkAll.checked = vis.length > 0 && n === vis.length;

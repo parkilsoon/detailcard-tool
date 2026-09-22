@@ -6,7 +6,7 @@ import io
 import json
 import logging
 
-from fastapi import FastAPI, HTTPException, Request, UploadFile
+from fastapi import FastAPI, Form, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -207,13 +207,25 @@ def save_card(card_id: str, body: SaveBody | None = None):
             "html_path": fresh["html_path"], "download": f"/cards/{card_id}/download"}
 
 
+@app.post("/cards/delete")
+def delete_cards(ids: str = Form("")):
+    """선택 삭제. DB 행과 저장 폴더를 완전히 지운다. 되돌릴 수 없다."""
+    id_list = [x for x in ids.split(",") if x.strip()]
+    n = 0
+    for cid in id_list:
+        card = db.get_card(cid)
+        if card:
+            service.delete_card(card)
+            n += 1
+    return RedirectResponse(f"/?msg={n}건을 완전히 삭제했습니다.", status_code=303)
+
+
 @app.post("/cards/{card_id}/delete")
 def delete_card(card_id: str):
+    """완전 삭제. 등록된 카드도 DB 행과 저장 폴더(원본·슬라이스·HTML)를 지운다. 되돌릴 수 없다."""
     card = _card_or_404(card_id)
-    if card["status"] == "done":
-        raise HTTPException(409, "등록된 항목은 삭제할 수 없습니다.")
     service.delete_card(card)
-    return RedirectResponse("/", status_code=303)
+    return RedirectResponse("/?msg=삭제했습니다.", status_code=303)
 
 
 @app.get("/export.csv")

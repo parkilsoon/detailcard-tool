@@ -7,6 +7,9 @@
     <a class="btn" href="/export.csv" id="csvBtn" title="선택한 항목이 있으면 그것만, 없으면 전체를 내보냅니다">데이터 출력 (CSV)</a>
     <a class="btn" href="/batch">다중 등록</a>
     <a class="btn primary" href="/new">＋ 새로 등록</a>
+    <form method="post" action="/cards/delete" id="bulkDelete" class="inline" onsubmit="return confirm('선택한 ' + document.getElementById('bulkIds').value.split(',').length + '건을 완전히 삭제합니다. DB와 저장된 파일(원본·HTML)이 모두 지워지며 되돌릴 수 없습니다. 계속할까요?')">
+      <input type="hidden" name="ids" id="bulkIds"><button class="btn delete" id="bulkDeleteBtn" disabled title="왼쪽 체크박스로 선택한 카드를 완전히 삭제합니다">선택 삭제</button>
+    </form>
   </div>
   {% if msg %}<p class="flash">{{ msg }}</p>{% endif %}
   <div class="tabs">
@@ -33,7 +36,6 @@
         <td class="mono">{{ c.updated_at[:16].replace('T',' ') }}</td>
         <td class="actions">
           {% if c.status == 'done' %}<a class="btn small" href="/cards/{{ c.id }}/download">HTML</a>{% endif %}
-          {% if c.status != 'done' %}<form method="post" action="/cards/{{ c.id }}/delete" class="inline" onsubmit="return confirm('이 초안을 삭제할까요?')"><button class="btn small ghost">삭제</button></form>{% endif %}
         </td>
       </tr>
     {% endfor %}
