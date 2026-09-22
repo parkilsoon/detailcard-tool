@@ -103,3 +103,11 @@ def test_normalize_product_name():
     assert run("자이그라", "3제형") == "자이그라"
     assert run("나조타손", None) == "나조타손"
     assert run("더모타손MLE", "<em>크림</em>") == "더모타손MLE크림"
+
+
+def test_color_tags_survive_postprocess(hand_payload):
+    hand_payload["header"]["ingredient"] = '<red>a</red> <blue class="x">b</blue> <b>c</b> <GREEN>d</GREEN>'
+    out = postprocess_extract(hand_payload)
+    assert out["header"]["ingredient"] == '<red>a</red> <blue>b</blue> c <green>d</green>'
+    from app.sanitize import plain_text
+    assert plain_text(out["header"]["ingredient"]) == "a b c d"

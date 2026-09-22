@@ -171,11 +171,16 @@ const App = (() => {
       // 강조가 들어간 값은 아래에 굵게 렌더한 미리보기를 보여준다 (태그를 몰라도 결과를 알 수 있게)
       const pv = document.createElement('div'); pv.className = 'em-preview'; f.appendChild(pv);
       const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const TAGS = ['em', 'red', 'blue', 'green', 'black'];
       const renderPv = () => {
         const v = ctl.value;
-        if (!/<em>/i.test(v)) { pv.hidden = true; return; }
+        if (!/<(em|red|blue|green|black)>/i.test(v)) { pv.hidden = true; return; }
         pv.hidden = false;
-        pv.innerHTML = esc(v).replace(/&lt;em&gt;/gi, '<em>').replace(/&lt;\/em&gt;/gi, '</em>');
+        let h = esc(v).replace(/&lt;em&gt;/gi, '<em>').replace(/&lt;\/em&gt;/gi, '</em>');
+        for (const c of ['red', 'blue', 'green', 'black']) {
+          h = h.replace(new RegExp('&lt;' + c + '&gt;', 'gi'), '<span class="c-' + c + '">').replace(new RegExp('&lt;/' + c + '&gt;', 'gi'), '</span>');
+        }
+        pv.innerHTML = h;
       };
       renderPv();
       ctl.addEventListener('input', renderPv);
@@ -204,20 +209,26 @@ const App = (() => {
       ctl.addEventListener('input', () => { clearTimeout(timer); state.textContent = '수정 중'; state.className = 'save-state'; timer = setTimeout(save, 800); });
       ctl.addEventListener('blur', () => { clearTimeout(timer); save(); });
 
-      // 굵게: 선택 영역을 <em>…</em> 로 감싼다 (이미 감싸져 있으면 벗긴다)
-      $('.em-btn', f).addEventListener('mousedown', e => e.preventDefault());
-      $('.em-btn', f).addEventListener('click', () => {
-        const s = ctl.selectionStart, en = ctl.selectionEnd;
-        if (s === en) { alert('강조할 글자를 먼저 드래그해서 선택하세요.'); ctl.focus(); return; }
-        const v = ctl.value, sel = v.slice(s, en);
-        let out, caret;
-        if (/^<em>[\s\S]*<\/em>$/.test(sel)) {
-          out = v.slice(0, s) + sel.slice(4, -5) + v.slice(en); caret = en - 9;
-        } else {
-          out = v.slice(0, s) + '<em>' + sel + '</em>' + v.slice(en); caret = en + 9;
-        }
-        ctl.value = out; ctl.focus(); ctl.setSelectionRange(s, caret);
-        ctl.dispatchEvent(new Event('input'));
+      // 굵게/색: 선택 영역을 <tag>…</tag> 로 감싼다. 이미 같은 태그로 감싸져 있으면 벗긴다 (토글)
+      $$('[data-tag]', f).forEach(btn => {
+        btn.addEventListener('mousedown', e => e.preventDefault());
+        btn.addEventListener('click', () => {
+          const tag = btn.dataset.tag, open = '<' + tag + '>', close = '</' + tag + '>';
+          const s = ctl.selectionStart, en = ctl.selectionEnd;
+          if (s === en) { alert('바꿀 글자를 먼저 드래그해서 선택하세요.'); ctl.focus(); return; }
+          const v = ctl.value, sel = v.slice(s, en);
+          let out, caret;
+          if (sel.startsWith(open) && sel.endsWith(close)) {
+            out = v.slice(0, s) + sel.slice(open.length, -close.length) + v.slice(en); caret = en - open.length - close.length;
+          } else {
+            // 다른 색이 이미 감싸고 있으면 그 색을 벗기고 새 색으로
+            const m = sel.match(/^<(red|blue|green|black)>([\s\S]*)<\/\1>$/);
+            const inner = (m && tag !== 'em') ? m[2] : sel;
+            out = v.slice(0, s) + open + inner + close + v.slice(en); caret = s + open.length + inner.length + close.length;
+          }
+          ctl.value = out; ctl.focus(); ctl.setSelectionRange(s, caret);
+          ctl.dispatchEvent(new Event('input'));
+        });
       });
     });
 

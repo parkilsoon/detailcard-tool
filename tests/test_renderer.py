@@ -98,3 +98,18 @@ def test_lists_have_no_css_bullets():
     assert 'li::before' not in css
     assert 'content:"·"' not in css
     assert '.warn ul{margin:2px 0 0;padding-left:0;list-style:none' in css
+
+
+def test_color_tags_whitelist():
+    out = str(em('<red>위험</red> <em><blue>굵은 파랑</blue></em> <green>g</green> <black>b</black> <span class="c-red">x</span> <red onclick="a()">y</red>'))
+    assert '<span class="c-red">위험</span>' in out
+    assert '<em><span class="c-blue">굵은 파랑</span></em>' in out
+    assert '<span class="c-green">g</span>' in out and '<span class="c-black">b</span>' in out
+    assert '&lt;span class=&quot;c-red&quot;&gt;x&lt;/span&gt;' in out          # 직접 쓴 span 은 태그로 살아나지 않음
+    assert '&lt;red onclick=&quot;a()&quot;&gt;' in out                          # 속성 붙은 red 는 이스케이프
+
+
+def test_color_tags_in_card(hand_payload):
+    hand_payload["header"]["ingredient"] = "<red>주의</red> 성분"
+    html = render_card(hand_payload)
+    assert '<span class="c-red">주의</span> 성분' in html and ".c-red{color" in html

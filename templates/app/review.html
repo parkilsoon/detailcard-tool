@@ -57,7 +57,7 @@
       </div>
       {% endif %}
       {% if critical %}<p class="hint">주의항목 <b>{{ critical }}</b>건(숫자·코드·용법·금기 문구)은 주황 표시로 되어 있습니다. 두 번 일치했더라도 한 번 더 봐 주세요.</p>{% endif %}
-      <p class="hint">칸을 고치면 자동으로 저장됩니다. 강조하고 싶은 글자를 드래그한 뒤 <b>굵게</b>를 누르세요.</p>
+      <p class="hint">칸을 고치면 자동으로 저장됩니다. 글자를 드래그한 뒤 <b>굵게</b>나 색 버튼을 누르면 그 부분만 바뀝니다. 같은 버튼을 다시 누르면 해제됩니다.</p>
     </div>
 
     {% for g in groups %}
@@ -69,7 +69,13 @@
         <div class="field-head">
           <label>{{ f.label }}</label>
           {% if f.flagged %}<span class="badge{% if f.severity == 'critical' %} crit{% endif %}">확인 필요</span>{% elif f.critical_rule %}<span class="badge rule">주의항목</span>{% endif %}
-          <button type="button" class="btn tiny em-btn" title="선택 영역 강조">굵게</button>
+          <button type="button" class="btn tiny em-btn" data-tag="em" title="선택 영역을 굵게 (다시 누르면 해제)">굵게</button>
+          <span class="colors">
+            <button type="button" class="swatch red" data-tag="red" title="빨강 (다시 누르면 해제)"></button>
+            <button type="button" class="swatch blue" data-tag="blue" title="파랑"></button>
+            <button type="button" class="swatch green" data-tag="green" title="녹색"></button>
+            <button type="button" class="swatch black" data-tag="black" title="검정"></button>
+          </span>
           <span class="save-state"></span>
         </div>
         {% if f.multiline %}

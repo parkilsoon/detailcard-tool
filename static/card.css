@@ -15,6 +15,11 @@
   --chip-bg:#fff4d6;      /* 자사생산 */
   --chip-ink:#b7791f;
   --hl-bg:#fff6cc;        /* 표 강조 행 */
+  /* 검수자가 넣는 글자색 (임시값 — 정확한 색상값은 추후 교체) */
+  --c-red:#d93025;
+  --c-blue:#1a6fd4;
+  --c-green:#4a8a36;
+  --c-black:#1f2937;
   --r:12px;
 }
 *{box-sizing:border-box;}
@@ -30,6 +35,12 @@ body{
 }
 .wrap{max-width:480px;margin:0 auto;background:var(--card);min-height:100vh;}
 .wrap em{font-style:normal;font-weight:700;color:var(--blue);}
+/* 검수자가 넣는 글자색. 굵기와 독립 */
+.wrap .c-red{color:var(--c-red);}
+.wrap .c-blue{color:var(--c-blue);}
+.wrap .c-green{color:var(--c-green);}
+.wrap .c-black{color:var(--c-black);}
+.head .c-red{color:#ffd1cc;} .head .c-blue{color:#d6e8ff;} .head .c-green{color:#dff5e3;} .head .c-black{color:#fff;}
 
 /* ── 헤더 (진녹색) ── */
 .head{padding:14px 20px 18px;background:var(--green);color:#fff;}
